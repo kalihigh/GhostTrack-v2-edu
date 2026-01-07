@@ -1,229 +1,268 @@
-# 🌐 GhostTrack – Global Observer Framework  
-### _Ethical Awareness · OSINT Intelligence · Critical Surface Monitoring_
+# 🌐 **GHOSTTRACK – GLOBAL OBSERVER FRAMEWORK**  
+### _Ethical Awareness · OSINT Intelligence · Planetary Monitoring · Scientific Resilience_
 
-![Status](https://img.shields.io/badge/Status-Active-blue)
-![Ethics](https://img.shields.io/badge/Ethical-100%25-green)
-![Legal](https://img.shields.io/badge/Compliance-Legal%20OSINT-yellow)
-![Offline](https://img.shields.io/badge/Mode-Offline--First-orange)
-![Privacy](https://img.shields.io/badge/Privacy-Tor%20Enhanced-purple)
-![Resilience](https://img.shields.io/badge/System-Resilient-red)
-![Observer](https://img.shields.io/badge/Role-Global%20Observer-lightgrey)
+`https://img.shields.io/badge/Status-Active-blue`
+`https://img.shields.io/badge/Ethical-100%25-green`
+`https://img.shields.io/badge/Compliance-Legal%20OSINT-yellow`
+`https://img.shields.io/badge/Mode-Offline--First-orange`
+`https://img.shields.io/badge/Privacy-Tor%20Enhanced-purple`
+`https://img.shields.io/badge/System-Resilient-red`
+`https://img.shields.io/badge/Role-Global%20Observer-lightgrey`
 
 <!-- Badge “per chi osserva attentamente” -->
-![Signal](https://img.shields.io/badge/Signal-Patterns%20Never%20Lie-black)
-![Planet](https://img.shields.io/badge/Planetary-Intelligence-0a84ff)
-![Awareness](https://img.shields.io/badge/Conscious-System-444444)
-![Ghost](https://img.shields.io/badge/Ghost-Always%20Watching-111111)
+`https://img.shields.io/badge/Signal-Patterns%20Never%20Lie-black`
+`https://img.shields.io/badge/Planetary-Intelligence-0a84ff`
+`https://img.shields.io/badge/Conscious-System-444444`
+`https://img.shields.io/badge/Ghost-Always%20Watching-111111`
+`https://img.shields.io/badge/Noise-Low%20Profile-222222`
+`https://img.shields.io/badge/Surface-Deep%20Signals-333333`
 
 ---
 
-GhostTrack è un sistema di **consapevolezza tecnica globale**, progettato per osservare il mondo attraverso dati pubblici, fonti OSINT e segnali aperti.  
-Non attacca, non viola, non interferisce: **interpreta**, **correla**, **protegge**.
+# 🛰️ **INTRODUZIONE**
 
-GhostTrack nasce dalla tradizione BackTrack → Kali → GhostTrack, trasformando la cultura hacker in una disciplina etica di osservazione e resilienza.
+GhostTrack è un sistema di **osservazione globale**, progettato per raccogliere, correlare e interpretare dati pubblici provenienti da:
+
+- infrastrutture  
+- ambiente  
+- traffico aereo  
+- traffico marittimo  
+- orbite satellitari  
+- open data istituzionali  
+- fenomeni meteorologici  
+- segnali territoriali  
+
+GhostTrack non attacca, non viola, non interferisce.  
+GhostTrack **osserva**, **analizza**, **protegge**.
 
 ---
 
-# 🚀 Missione
+# 🚀 **MISSIONE**
 
-GhostTrack è progettato per:
+GhostTrack nasce per:
 
+- aumentare la consapevolezza tecnica del territorio  
 - monitorare superfici critiche globali  
-- correlare dati pubblici multi‑settore  
-- identificare pattern anomali  
-- supportare analisi OSINT avanzate  
+- rilevare pattern e anomalie  
+- supportare enti, scuole, sportivi, ricercatori  
 - funzionare anche offline  
 - proteggere la privacy dell’operatore  
 - ridurre al minimo l’esposizione di rete  
 
-GhostTrack non è un tool offensivo.  
-GhostTrack è un **osservatore etico**.
+GhostTrack è un **osservatore etico**, non un framework offensivo.
 
 ---
 
-# 🧠 Cosa fa GhostTrack
+# 🧠 **FUNZIONALITÀ PRINCIPALI**
 
-GhostTrack analizza **solo dati pubblici**, provenienti da fonti ufficiali e open‑source:
-
-### 🔋 Energia & Infrastrutture  
+## 🔋 Energia & Infrastrutture  
 - Open Data energetici  
 - Report blackout  
 - Indicatori di stabilità di rete  
 
-### ✈️ Traffico Aereo  
-- ADS‑B Exchange → https://www.adsbexchange.com  
-- NOTAM FAA → https://www.notams.faa.gov  
+## ✈️ Traffico Aereo  
+- ADS‑B Exchange → [https://www.adsbexchange.com](https://www.adsbexchange.com)  
+- NOTAM FAA → [https://www.notams.faa.gov](https://www.notams.faa.gov)  
 - Meteo aeronautico  
 
-### 🚢 Traffico Marittimo  
-- AIS pubblico → https://www.marinetraffic.com  
+## 🚢 Traffico Marittimo  
+- AIS pubblico → [https://www.marinetraffic.com](https://www.marinetraffic.com)  
 - Dati IMO  
 - Porti open‑data  
 
-### 🛰️ Satelliti  
-- TLE (Celestrak) → https://www.celestrak.com  
-- Alert collisioni  
-- Telemetria civile open  
+## 🛰️ Orbita & Ricerca Spaziale  
+GhostTrack integra dati da:
 
-### 🏙️ Infrastrutture Civili  
-- Open Data urbani  
-- Trasporti  
-- Servizi essenziali  
+- Celestrak (TLE) → [https://www.celestrak.com](https://www.celestrak.com)  
+- SETI Institute → [https://www.seti.org](https://www.seti.org)  
+- NASA EarthData → [https://earthdata.nasa.gov](https://earthdata.nasa.gov)  
+- NOAA Space Weather → [https://www.swpc.noaa.gov](https://www.swpc.noaa.gov)  
+- Radioastronomia pubblica (radiotelescopi open)  
 
-### 📰 Comunicati Ufficiali  
-- RSS istituzionali  
-- Agenzie stampa certificate  
+## 🌦️ Meteo & Ambiente  
+- micro‑climi locali  
+- variazioni atmosferiche  
+- correlazioni con Starlink (rain fade)  
+- dati ARPA  
+- dati Copernicus  
+
+## 🌱 **Agricoltura – GhostTrack AgroWatch**  
+GhostTrack supporta:
+
+- monitoraggio vigneti  
+- stress idrico  
+- rischio gelate  
+- rischio muffe  
+- umidità del suolo  
+- temperatura fogliare  
+- correlazioni meteo‑agricole  
+
+Perfetto per territori collinari come **Pragone – Pietra de’ Giorgi**.
 
 ---
 
-# 🧩 Architettura GhostTrack Global Observer
+# 🛰️ **STARLINK GEO‑SENTINEL NODE**
 
-## 1️⃣ Offline‑First Architecture
+GhostTrack integra Starlink come:
 
-GhostTrack è progettato per funzionare anche senza connessione:
+- nodo di osservazione atmosferica  
+- rilevatore di attenuazioni (rain fade)  
+- sensore passivo di micro‑variazioni climatiche  
+- hub Mesh per sensori ambientali  
+- nodo offline‑first per zone remote  
 
-- analisi locale  
-- dataset aggiornati periodicamente  
+Starlink non viene modificato né alterato.  
+GhostTrack utilizza **solo dati legali e pubblici**.
+
+---
+
+# 🧩 **ARCHITETTURA**
+
+## 1️⃣ Offline‑First  
+- funziona anche senza internet  
 - sincronizzazione minima  
-- nessuna dipendenza da rete continua  
-- modalità “isolata” per contesti remoti  
+- dataset locali  
+- modalità “isolata”  
 
-GhostTrack continua a funzionare anche in:
+## 2️⃣ Privacy & Tor  
+Tor Project → [https://www.torproject.org](https://www.torproject.org)  
+Usato solo per:
 
-- zone montane  
-- blackout  
-- assenza di rete  
-- contesti critici  
-
----
-
-## 2️⃣ Privacy & Tor Integration
-
-GhostTrack integra Tor come **strato di privacy**, non come rete parallela.  
-Tor Project → https://www.torproject.org
-
-Funzioni legali:
-
-- anonimizzazione delle richieste  
-- minimizzazione dell’esposizione  
+- anonimizzazione  
 - protezione dell’operatore  
-- nessuna attività offensiva  
-- nessuna scansione  
-- nessuna intrusione  
+- riduzione superficie esposta  
 
-GhostTrack usa Tor **solo** per proteggere la privacy dell’utente.
+## 3️⃣ Emergency Beacon System (EBS)  
+Un sistema legale, passivo, universale.
 
----
+### 📱 **EBS‑Universal Beacon (software)**  
+Compatibile con:
 
-## 3️⃣ Emergency Communication Module (legale)
+- smartphone  
+- smartwatch  
+- tablet  
+- laptop  
 
-GhostTrack include un modulo di comunicazione di emergenza **non invasivo**, **non radio‑interferente**, **100% legale**.
+Funzioni:
 
-Funzioni consentite:
+- invio SOS tramite BLE  
+- SOS via Wi‑Fi SSID  
+- QR‑SOS dinamico  
+- file di emergenza offline  
 
-- 🔵 BLE Beacon SOS  
-- 📶 Wi‑Fi Beacon SOS (SSID)  
-- 🟦 QR Code dinamici  
-- 🔗 Mesh legale (BLE Mesh / LoRaWAN)  
-- 🗂️ File di emergenza offline  
+### 🔑 **EBS‑KeyTag (concept legale)**  
+Un portachiavi:
 
-Funzioni NON presenti:
-
-- ❌ trasmissioni radio non autorizzate  
-- ❌ interferenze TV  
-- ❌ uso di frequenze protette  
-- ❌ emissioni ad alta potenza  
-- ❌ comunicazioni militari  
-
----
-
-## 4️⃣ Retro‑Terminal Mode (SIP‑Style anni ’90)
-
-Ispirata ai micro‑terminali SIP degli anni ’90:
-
-- interfaccia minimale  
-- leggibile anche su schermi piccoli  
-- funzionamento offline  
-- zero grafica pesante  
-- zero dipendenze inutili  
-- perfetta per contesti remoti  
-
-GhostTrack può operare come un **terminal OSINT retro**, robusto e affidabile.
+- piccolo  
+- sicuro  
+- BLE‑based  
+- nessuna interferenza radio  
+- un solo pulsante  
+- invio SOS locale  
 
 ---
 
-# 🔒 Etica & Legalità
+# 🏛️ **GHOSTTRACK EDU – COLLABORAZIONE SCOLASTICA**
 
-GhostTrack è progettato per essere:
+`https://img.shields.io/badge/Program-GhostTrack%20EDU-0057b8`
+
+GhostTrack avvia un percorso istituzionale con **scuole elementari**, per:
+
+- educazione digitale  
+- osservazione ambientale  
+- meteorologia di base  
+- introduzione ai dati pubblici  
+- sensibilità verso il territorio  
+
+### 🎓 Laboratori  
+- “Il Meteo che Cambia”  
+- “Segnali dal Cielo”  
+- “La Terra Respira”  
+- “La Rete Invisibile”  
+
+---
+
+# 🏅 **GHOSTTRACK SPORT EXTREME**
+
+`https://img.shields.io/badge/Program-Sport%20Extreme-brown`
+
+GhostTrack supporta attività outdoor:
+
+- trekking  
+- trail running  
+- MTB  
+- esplorazioni naturalistiche  
+- attività in zone remote  
+
+### Supporto informativo  
+- micro‑meteo  
+- variazioni atmosferiche  
+- monitoraggio ambientale  
+- sicurezza preventiva  
+
+### Integrazione EBS  
+Il modulo EBS è pensato per:
+
+- sportivi  
+- guide  
+- associazioni  
+- enti territoriali  
+
+---
+
+# 🔭 **GHOSTTRACK BOINC NODE – RICERCA SCIENTIFICA DISTRIBUITA**
+
+GhostTrack mira a una futura integrazione con:
+
+- BOINC → [https://boinc.berkeley.edu](https://boinc.berkeley.edu)  
+
+Per contribuire a:
+
+- analisi ambientali  
+- modelli climatici  
+- ricerca spaziale  
+- progetti scientifici globali  
+
+---
+
+# 🔒 **ETICA & LEGALITÀ**
+
+GhostTrack è:
 
 - 100% legale  
 - 100% OSINT  
 - 100% passivo  
 - 0% intrusivo  
 
-Non accede a reti private.  
-Non intercetta comunicazioni.  
-Non monitora individui.  
-Non simula attacchi.  
-Non interferisce con frequenze protette.
+---
+
+# 📜 **LICENZA**
+
+✔️ uso personale  
+✔️ uso professionale  
+✔️ uso educativo  
+✔️ uso civile  
+
+❌ fork  
+❌ modifiche  
+❌ redistribuzioni alterate  
+❌ reverse engineering  
 
 ---
 
-# 📜 Licenza GhostTrack – Uso Consentito
+# 🛡️ **DICHIARAZIONE LEGALE**
 
-GhostTrack è distribuito con licenza restrittiva:
-
-### ✔️ Consentito
-- uso personale  
-- uso professionale  
-- uso educativo  
-- uso civile  
-- utilizzo nella forma originale  
-
-### ❌ Vietato
-- fork  
-- modifiche  
-- redistribuzioni alterate  
-- reverse engineering  
-- riuso del nome “GhostTrack / GhostTrack OS”  
-- riuso del logo  
-- distribuzioni non ufficiali  
-
-Il software è fornito “così com’è”, senza garanzie.
-
----
-
-# 🛡️ Dichiarazione Legale
-
-Il progetto GhostTrack è sviluppato e mantenuto nel rispetto delle normative vigenti.  
-Non svolge attività di intrusione, interferenza, intercettazione o manipolazione di sistemi terzi.
+Il progetto GhostTrack è sviluppato nel rispetto delle normative vigenti.  
+Non svolge attività di intrusione, interferenza o intercettazione.
 
 **Responsabile legale:**  
 P.IVA **11040550961**  
 (ZDOS – denominazione registrata)
 
-Nessuna pubblicità personale.  
-Nessuna esposizione del creatore.  
-Solo tutela legale e trasparenza.
-
 ---
 
-# 🌟 Conclusione
+# 🌍 **HASHTAG UFFICIALI**
 
-GhostTrack non è un tool.  
-Non è un framework.  
-Non è un OS.
+`#GhostTrack #GlobalObserver #EthicalAwareness #OSINTFramework #CriticalSurfaceMonitoring #PlanetWatch #InfrastructureOSINT #EnergyWatch #AviationWatch #MarineWatch #SatelliteTracking #PrivacyByDesign #OfflineFirst #ResilientSystems #OpenData #GeoInt #AnomalyDetection #DigitalConscience #PlanetaryIntelligence #ResilientFuture #GhostTrackEDU #GhostTrackSportExtreme #GhostTrackAgroWatch #GhostTrackBOINC`
 
-GhostTrack è una **coscienza tecnica**.  
-Un osservatore globale.  
-Un interprete del mondo.  
-Una costellazione viva di moduli, segnali e rituali.
-
-E questo è solo l’inizio.
-
----
-
-# 🌍 Hashtag Ufficiali
-
-`#GhostTrack #GlobalObserver #EthicalAwareness #OSINTFramework #CriticalSurfaceMonitoring #PlanetWatch #InfrastructureOSINT #EnergyWatch #AviationWatch #MarineWatch #SatelliteTracking #PrivacyByDesign #OfflineFirst #ResilientSystems #OpenData #GeoInt #AnomalyDetection #DigitalConscience #PlanetaryIntelligence #ResilientFuture`
 
