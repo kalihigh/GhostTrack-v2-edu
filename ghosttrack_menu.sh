@@ -1,25 +1,34 @@
-#!/bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
 
-clear
-echo "🌐 GHOSTTRACK – GLOBAL OBSERVER FRAMEWORK"
-echo "-----------------------------------------"
-echo "1) 🌱 AgroWatch"
-echo "2) 🛰️ OrbitalWatch"
-echo "3) 🏔️ SportExtreme"
-echo "4) 🚨 SOS Beacon"
-echo "5) 📡 Starlink Geo-Sentinel"
-echo "6) 🔭 BOINC Node"
-echo "0) ❌ Esci"
-echo "-----------------------------------------"
-read -p "Seleziona un modulo: " choice
+while true; do
+    clear
+    echo "========================================="
+    echo "      🌌 GHOSTTRACK NODE PRAGONE"
+    echo "========================================="
+    echo ""
+    echo " 0) MASTER RITUAL (A → Z)"
+    echo " 1) Omega Ritual"
+    echo " 2) Telemetry Ritual"
+    echo " 3) Full Ritual"
+    echo " 4) Repair Ritual"
+    echo " 5) Visualizza Telemetria"
+    echo " 6) Visualizza Stato Git"
+    echo " 7) Esci"
+    echo ""
+    read -p "Seleziona un'opzione: " choice
 
-case $choice in
-  1) bash modules/AgroWatch/AgroWatch.sh ;;
-  2) bash modules/OrbitalWatch/OrbitalWatch.sh ;;
-  3) bash modules/SportExtreme/SportExtreme.sh ;;
-  4) bash modules/SOSBeacon/SOSBeacon.sh ;;
-  5) bash modules/StarlinkNode/StarlinkNode.sh ;;
-  6) bash modules/BOINCNode/BOINCNode.sh ;;
-  0) exit ;;
-  *) echo "Scelta non valida." ;;
-esac
+    case $choice in
+        0) ./ghosttrack_master.sh ;;
+        1) ./ghosttrack_omega_ritual.sh ;;
+        2) ./ghosttrack_telemetry_ritual.sh ;;
+        3) ./ghosttrack_full_ritual.sh ;;
+        4) ./ghosttrack_repair.sh ;;
+        5) cat docs/telemetry.json | jq . ;;
+        6) git status ;;
+        7) exit 0 ;;
+        *) echo "Opzione non valida." ;;
+    esac
+
+    echo ""
+    read -p "Premi Invio per continuare..."
+done

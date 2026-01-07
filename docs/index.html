@@ -3,209 +3,170 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GhostTrack Hub</title>
-
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<title>GhostTrack‑v2 — Nodo Pragone</title>
 
 <style>
-body { margin:0; padding:0; background:#0a0a0a; color:#e0e0e0; font-family:Arial, sans-serif; }
-header { padding:20px; text-align:center; background:#111; border-bottom:1px solid #222; }
-h1 { margin:0; font-size:28px; color:#00e0ff; }
-.panel { margin:20px; padding:20px; background:#111; border-radius:12px; border:1px solid #222; }
-.panel-header { display:flex; justify-content:space-between; align-items:center; }
-.panel-title { font-size:20px; font-weight:bold; color:#00e0ff; }
-.panel-badge { background:#00e0ff; color:#000; padding:4px 10px; border-radius:6px; font-size:12px; }
-.hero-title { font-size:22px; margin-top:10px; color:#fff; }
-.hero-subtitle { font-size:14px; color:#aaa; margin-bottom:10px; }
-a { color:#00e0ff; text-decoration:none; }
-a:hover { text-decoration:underline; }
+body {
+    background: #000;
+    color: #00ffee;
+    font-family: monospace;
+    margin: 0;
+    padding: 0;
+}
+
+/* HEADER */
+header {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #003f3f;
+    background: #020202;
+}
+
+/* SECTION */
+section {
+    padding: 20px;
+}
+
+/* TELEMETRIA BOX */
+#telemetry-box {
+    background: rgba(0, 20, 20, 0.6);
+    border: 1px solid #00ffee;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* MENU FLOATING */
+#gt-menu-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #0a0a0a;
+  color: #00ffea;
+  padding: 12px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: monospace;
+  font-size: 14px;
+  border: 1px solid #00ffea;
+  z-index: 9999;
+}
+
+#gt-menu-panel {
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  width: 260px;
+  background: rgba(0,0,0,0.92);
+  border: 1px solid #00ffea;
+  border-radius: 8px;
+  padding: 15px;
+  display: none;
+  z-index: 9999;
+  font-family: monospace;
+  color: #00ffea;
+}
+
+.gt-menu-item {
+  padding: 8px 0;
+  cursor: pointer;
+  border-bottom: 1px solid #003f3f;
+}
+
+.gt-menu-item:hover {
+  color: #ffffff;
+}
 </style>
 </head>
 
 <body>
+
 <header>
-  <h1>GhostTrack Hub</h1>
+    <h1>🌌 GhostTrack‑v2</h1>
+    <h2>Nodo Pragone — Pietra de’ Giorgi</h2>
 </header>
 
-<!-- Nodo Locale -->
-<section class="panel">
-  <div class="panel-header">
-    <div class="panel-title">Nodo Locale</div>
-    <div class="panel-badge">Core</div>
-  </div>
-  <div class="hero-title">GhostTrack Node Pragone</div>
-  <div class="hero-subtitle">Nodo operativo nella costellazione GhostTrack.</div>
-  <ul>
-    <li><b>Ruolo:</b> Geo‑Sentinel / Mesh‑Ready</li>
-    <li><b>Posizione:</b> Pragone, Pietra de' Giorgi (PV)</li>
-    <li><b>Modalità:</b> Offline‑first, resiliente</li>
-  </ul>
+<section>
+    <h3>📡 Telemetria del Nodo</h3>
+    <div id="telemetry-box">
+        Caricamento telemetria...
+    </div>
+
+    <h3>🌍 Live Atlas</h3>
+    <p>Il globo 3D verrà integrato qui. La struttura è già predisposta.</p>
+
+    <h3>🛰 Stato del Nodo</h3>
+    <ul>
+        <li>Modalità: Offline‑First</li>
+        <li>Rituali: Master, Omega, Telemetry, Full, Repair</li>
+        <li>Sync: GitHub Pages</li>
+    </ul>
 </section>
 
-<!-- System Status -->
-<section class="panel">
-  <div class="panel-header">
-    <div class="panel-title">GhostTrack System</div>
-    <div class="panel-badge">Status</div>
-  </div>
-  <div class="hero-title">Stato del Nodo</div>
-  <div class="hero-subtitle">Informazioni locali, uptime e build info.</div>
-  <ul>
-    <li><b>Versione Hub:</b> 1.0</li>
-    <li><b>Build:</b> Wed Jan  7 19:20:44 CET 2026</li>
-    <li><b>Uptime Browser:</b> <span id="uptime">0s</span></li>
-    <li><b>Modalità:</b> Offline‑first</li>
-  </ul>
-</section>
+<!-- MENU FLOATING -->
+<div id="gt-menu-btn">☰ GhostTrack</div>
 
-<!-- Geo‑Sentinel -->
-<section class="panel">
-  <div class="panel-header">
-    <div class="panel-title">Geo‑Sentinel</div>
-    <div class="panel-badge">Territory</div>
-  </div>
-  <div class="hero-title">Nodo Territoriale: Pragone</div>
-  <div class="hero-subtitle">Monitoraggio locale e area operativa.</div>
-  <div id="map" style="height:420px; border-radius:12px;"></div>
-</section>
-
-<!-- Starlink -->
-<section class="panel">
-  <div class="panel-header">
-    <div class="panel-title">Starlink Link</div>
-    <div class="panel-badge">Satellite</div>
-  </div>
-  <div class="hero-title">Monitoraggio Link</div>
-  <div class="hero-subtitle">Stato simulato del link Starlink.</div>
-  <ul>
-    <li><b>Stato:</b> <span id="sl-status">checking…</span></li>
-    <li><b>Latenza:</b> <span id="sl-latency">–</span></li>
-    <li><b>Down:</b> <span id="sl-down">–</span></li>
-    <li><b>Up:</b> <span id="sl-up">–</span></li>
-  </ul>
-</section>
-
-<!-- Mesh -->
-<section class="panel">
-  <div class="panel-header">
-    <div class="panel-title">Mesh Node</div>
-    <div class="panel-badge">Network</div>
-  </div>
-  <div class="hero-title">Stato Mesh Locale</div>
-  <div class="hero-subtitle">Simulazione handshake e qualità link.</div>
-  <ul>
-    <li><b>Handshake:</b> <span id="mesh-handshake">pending…</span></li>
-    <li><b>Qualità Link:</b> <span id="mesh-quality">–</span></li>
-    <li><b>Nodi Vicini:</b> <span id="mesh-nodes">–</span></li>
-  </ul>
-</section>
-
-<!-- OSINT -->
-<section class="panel">
-  <div class="panel-header">
-    <div class="panel-title">Situational Awareness</div>
-    <div class="panel-badge">OSINT</div>
-  </div>
-  <div class="hero-title">Raccolta OSINT</div>
-  <ul>
-    <li><a href="https://www.flightradar24.com" target="_blank">Flightradar24</a></li>
-    <li><a href="https://www.marinetraffic.com" target="_blank">MarineTraffic</a></li>
-    <li><a href="https://earthquake.usgs.gov/earthquakes/map/" target="_blank">USGS Earthquakes</a></li>
-    <li><a href="https://www.windy.com" target="_blank">Windy</a></li>
-  </ul>
-</section>
-
-<!-- Red Bull TV -->
-<section class="panel">
-  <div class="panel-header">
-    <div class="panel-title">Red Bull TV</div>
-    <div class="panel-badge">Stream</div>
-  </div>
-  <div class="hero-title">Canale Live</div>
-  <p><a href="https://www.redbull.com/int-en/tv" target="_blank">Apri Red Bull TV</a></p>
-</section>
-
-<!-- Telemetria -->
-<section class="panel">
-  <div class="panel-header">
-    <div class="panel-title">Telemetria</div>
-    <div class="panel-badge">Sensors</div>
-  </div>
-  <pre id="telemetry-output" style="background:#000; color:#0f0; padding:10px; height:160px; overflow:auto;">Telemetria in attesa...</pre>
-</section>
-
-<!-- Console -->
-<section class="panel">
-  <div class="panel-header">
-    <div class="panel-title">Console Operativa</div>
-    <div class="panel-badge">Shell</div>
-  </div>
-  <div id="console-output" style="background:#000; color:#0f0; padding:10px; height:180px; overflow:auto;">GhostTrack Console pronta. Digita "help".</div>
-  <input id="console-input" type="text" style="width:100%; margin-top:8px; padding:6px; background:#050505; color:#eee;">
-</section>
-
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<div id="gt-menu-panel">
+  <div class="gt-menu-item" onclick="gtShowTelemetry()">📡 Telemetria</div>
+  <div class="gt-menu-item" onclick="gtShowNodeInfo()">🛰 Nodo Pragone</div>
+  <div class="gt-menu-item" onclick="gtShowAtlas()">🌍 Live Atlas</div>
+  <div class="gt-menu-item" onclick="gtShowSystem()">⚙ Sistema</div>
+  <div class="gt-menu-item" onclick="gtSurprise()">✨ Sorpresa</div>
+</div>
 
 <script>
-// Uptime
-let start = Date.now();
-setInterval(() => {
-  document.getElementById("uptime").textContent =
-    Math.floor((Date.now() - start)/1000) + "s";
-}, 1000);
+/* MENU */
+document.getElementById("gt-menu-btn").onclick = function() {
+  const panel = document.getElementById("gt-menu-panel");
+  panel.style.display = (panel.style.display === "block") ? "none" : "block";
+};
 
-// Geo‑Sentinel
-const NODE_LAT = 45.0389;
-const NODE_LON = 9.2430;
-const map = L.map('map').setView([NODE_LAT, NODE_LON], 14);
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-L.marker([NODE_LAT, NODE_LON]).addTo(map).bindPopup("GhostTrack Node Pragone");
-L.circle([NODE_LAT, NODE_LON], {radius:600, color:"#00b7ff", fillOpacity:0.15}).addTo(map);
-
-// Starlink
-function rand(a,b){return Math.floor(Math.random()*(b-a+1))+a;}
-function updateStarlink(){
-  document.getElementById("sl-status").textContent="Online";
-  document.getElementById("sl-latency").textContent=rand(25,55)+" ms";
-  document.getElementById("sl-down").textContent=rand(80,180)+" Mbps";
-  document.getElementById("sl-up").textContent=rand(10,25)+" Mbps";
+/* TELEMETRIA LIVE */
+function loadTelemetry() {
+    fetch("telemetry.json")
+        .then(r => r.json())
+        .then(data => {
+            document.getElementById("telemetry-box").innerHTML = `
+                <b>Uptime:</b> ${data.uptime}<br>
+                <b>Load Avg:</b> ${data.loadavg}<br>
+                <b>Disco:</b> ${data.disk_usage}<br>
+                <b>IP:</b> ${data.ip_address}<br>
+                <b>Timestamp:</b> ${data.timestamp_utc}<br>
+                <b>Status:</b> ${data.status}
+            `;
+        })
+        .catch(() => {
+            document.getElementById("telemetry-box").innerHTML =
+                "Impossibile caricare la telemetria.";
+        });
 }
-updateStarlink(); setInterval(updateStarlink,5000);
 
-// Mesh
-function updateMesh(){
-  document.getElementById("mesh-handshake").textContent="OK";
-  document.getElementById("mesh-quality").textContent=rand(60,99)+"%";
-  document.getElementById("mesh-nodes").textContent=rand(0,3);
+/* MENU ACTIONS */
+function gtShowTelemetry() {
+  loadTelemetry();
+  alert("Telemetria aggiornata.");
 }
-setTimeout(updateMesh,1500); setInterval(updateMesh,7000);
 
-// Telemetria
-(function(){
-  const out=document.getElementById("telemetry-output");
-  function log(t){out.textContent+="\n"+t; out.scrollTop=out.scrollHeight;}
-  if(navigator.geolocation){
-    navigator.geolocation.getCurrentPosition(p=>log("Geoloc: "+p.coords.latitude+", "+p.coords.longitude),
-                                             ()=>log("Geoloc non autorizzata."));
-  }
-})();
+function gtShowNodeInfo() {
+  alert("🛰 Nodo Pragone\nLocalità: Pietra de’ Giorgi\nStato: Online\nHeartbeat: Attivo");
+}
 
-// Console
-(function(){
-  const out=document.getElementById("console-output");
-  const input=document.getElementById("console-input");
-  function log(t){out.textContent+="\n"+t; out.scrollTop=out.scrollHeight;}
-  async function run(cmd){
-    const p=cmd.split(" "); const c=p[0];
-    if(c==="help"){log("help, echo, open, ping"); return;}
-    if(c==="echo"){log(p.slice(1).join(" ")); return;}
-    if(c==="open"){window.open(p[1],"_blank"); log("Apro "+p[1]); return;}
-    if(c==="ping"){try{await fetch(p[1],{mode:"no-cors"}); log("Ping inviato");}catch(e){log("Errore");} return;}
-    log("Comando non valido");
-  }
-  input.addEventListener("keydown",e=>{if(e.key==="Enter"){log("> "+input.value); run(input.value); input.value="";}});
-})();
+function gtShowAtlas() {
+  alert("🌍 Live Atlas\nIl globo 3D verrà integrato qui.");
+}
+
+function gtShowSystem() {
+  alert("⚙ Sistema GhostTrack‑v2\nModalità: Offline‑First\nRituali: Master, Omega, Telemetry, Full, Repair");
+}
+
+function gtSurprise() {
+  alert("✨ Sorpresa!\nIl nodo Pragone è ora parte della costellazione.\nOgni gesto è un battito.\nOgni rituale è un respiro.");
+}
+
+/* AUTOLOAD */
+loadTelemetry();
 </script>
 
 </body>
 </html>
+
