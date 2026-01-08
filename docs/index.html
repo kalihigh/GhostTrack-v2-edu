@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GhostTrack‑v2 — Cosmic Node Dashboard</title>
+<title>GhostTrack‑v2 — Premium Cosmic Node</title>
 <style>
 body { margin:0; font-family:system-ui, sans-serif; background:#050711; color:#e5f7ff; }
 header { padding:16px; text-align:center; border-bottom:1px solid #1b2235; background:radial-gradient(circle at top,#1b2a4a,#050711); }
@@ -26,27 +26,30 @@ pre { background:#050814; padding:8px; border-radius:6px; overflow:auto; font-si
 a { color:#7fffd4; text-decoration:none; }
 a:hover { text-decoration:underline; }
 .tagline { font-size:11px; opacity:0.7; margin-top:4px; }
+#chatlog { height:200px; overflow:auto; background:#050814; padding:8px; border-radius:6px; }
+#chatinput { width:100%; margin-top:8px; padding:6px; border-radius:4px; border:1px solid #1b2235; background:#050814; color:#e5f7ff; }
+video { border-radius:6px; border:1px solid #1b2235; }
 </style>
 </head>
 <body>
 
 <header>
   <h1>🌌 GhostTrack‑v2</h1>
-  <h2>Cosmic Node Dashboard — Pragone Constellation</h2>
-  <div class="tagline">Osservazione etica · Territorio · Orbita · Radio · Reti · AI locale · Citizen Science</div>
+  <h2>Premium Cosmic Node — Pragone Constellation</h2>
+  <div class="tagline">Osservazione etica · Territorio · Orbita · Sport · Reti · Astro · Chat locale</div>
 </header>
 
 <div id="tabs">
-  <div class="tab active" data-target="mission">🛰 Mission Control</div>
-  <div class="tab" data-target="env">🌍 Environment & Agro</div>
-  <div class="tab" data-target="cyber">🛡 Security & Network</div>
-  <div class="tab" data-target="space">📡 Orbital & Starlink</div>
-  <div class="tab" data-target="maps">🗺 Offline Maps & GPS</div>
-  <div class="tab" data-target="media">🔥 Media Hub</div>
-  <div class="tab" data-target="chat">💬 BiChat Retro</div>
-  <div class="tab" data-target="academy">🎓 Academy & Docs</div>
-  <div class="tab" data-target="citizen">✨ Citizen Science</div>
-  <div class="tab" data-target="astro">🔭 Astro‑Telemetria</div>
+  <div class="tab active" data-target="mission">🛰 Mission</div>
+  <div class="tab" data-target="env">🌍 Environment</div>
+  <div class="tab" data-target="cyber">🛡 Security</div>
+  <div class="tab" data-target="space">📡 Orbital</div>
+  <div class="tab" data-target="maps">🗺 Maps</div>
+  <div class="tab" data-target="sport">🔥 Sport</div>
+  <div class="tab" data-target="localchat">💬 Chat</div>
+  <div class="tab" data-target="astro2">🌌 Astro</div>
+  <div class="tab" data-target="academy">🎓 Docs</div>
+  <div class="tab" data-target="citizen">✨ Citizen</div>
 </div>
 
 <!-- MISSION CONTROL -->
@@ -55,12 +58,14 @@ a:hover { text-decoration:underline; }
   <div class="grid">
     <div class="card">
       <h3>📡 Telemetria Nodo</h3>
-      <p><b>Uptime:</b> demo<br>
-         <b>Load Avg:</b> demo<br>
-         <b>Disco:</b> demo<br>
-         <b>IP:</b> demo<br>
-         <b>Status:</b> <span class="badge badge-ok">OK</span></p>
-      <p class="small">Questa sezione può essere collegata a un file JSON di telemetria generato dal nodo.</p>
+      <p id="node-telemetry">
+        <b>Uptime:</b> demo<br>
+        <b>Load Avg:</b> demo<br>
+        <b>Disco:</b> demo<br>
+        <b>IP:</b> demo<br>
+        <b>Status:</b> <span class="badge badge-ok">OK</span>
+      </p>
+      <p class="small">In futuro può leggere da docs/telemetry.json.</p>
     </div>
     <div class="card">
       <h3>🧱 Sistema Core</h3>
@@ -73,10 +78,9 @@ a:hover { text-decoration:underline; }
         <span class="badge badge-warn">RepairEngine</span>
         <span class="badge badge-ok">SyncEngine</span>
       </p>
-      <p class="small">Stato logico dei moduli core. In futuro: link a log dettagliati.</p>
     </div>
     <div class="card">
-      <h3>🔧 Ritualità</h3>
+      <h3>🔧 Rituali</h3>
       <pre>
 MasterRitual   ✔ ultima esecuzione: demo
 FullRitual     ✔ ultima esecuzione: demo
@@ -84,7 +88,6 @@ OmegaRitual    ⏳ in attesa
 AutoSync       ✔ attivo
 SuperCommit    ✔ attivo
       </pre>
-      <p class="small">Rituali come pipeline operative: telemetria, sync, commit, pubblicazione.</p>
     </div>
   </div>
 </section>
@@ -95,31 +98,26 @@ SuperCommit    ✔ attivo
   <div class="grid">
     <div class="card">
       <h3>🌡 Microclima</h3>
-      <p><b>Temperatura:</b> demo<br>
-         <b>Umidità:</b> demo<br>
-         <b>Pressione:</b> demo<br>
-         <b>Vento:</b> demo</p>
-      <p class="small">Dati da sensori locali o API offline‑friendly.</p>
+      <p id="microclima">
+        <b>Lat:</b> demo<br>
+        <b>Lon:</b> demo<br>
+        <b>Temperatura:</b> demo<br>
+        <b>Umidità:</b> demo<br>
+        <b>Pressione:</b> demo<br>
+        <b>Vento:</b> demo
+      </p>
+      <p class="small">Si aggiorna con geolocalizzazione + API meteo quando online.</p>
     </div>
     <div class="card">
       <h3>🌾 AgroWatch</h3>
-      <p>
+      <p id="agro">
         <span class="badge badge-ok">SoilSense</span>
         <span class="badge badge-ok">RainPulse</span>
         <span class="badge badge-warn">WindWatch</span><br>
         <span class="badge badge-off">ForestGuard</span>
         <span class="badge badge-off">GeoSentinel</span>
       </p>
-      <p class="small">Moduli per suolo, pioggia, vento, foresta, geosentinella.</p>
-    </div>
-    <div class="card">
-      <h3>📘 Field Notes</h3>
-      <pre>
-[Evento] 2026-01-08 16:11
-Luogo: Pragone
-Note: microclima stabile, vento leggero.
-      </pre>
-      <p class="small">Spazio per note manuali su territorio, colture, fenomeni locali.</p>
+      <p class="small">Mostra anche qualità aria quando online.</p>
     </div>
   </div>
 </section>
@@ -138,34 +136,22 @@ Note: microclima stabile, vento leggero.
         <span class="badge badge-warn">ZeroTrust Layer</span>
         <span class="badge badge-ok">Integrity Guardian</span>
       </p>
-      <p class="small">Monitoraggio logico di sicurezza. In futuro: link a report dettagliati.</p>
     </div>
     <div class="card">
-      <h3>🌐 Reti & Mesh</h3>
+      <h3>🌐 Mesh & MultiWAN</h3>
       <p>
         <span class="badge badge-ok">MeshNode</span>
         <span class="badge badge-ok">LinkWatch</span><br>
         <span class="badge badge-ok">MultiWAN Engine</span>
         <span class="badge badge-warn">Fallback System</span>
       </p>
-      <p class="small">Stato connettività, mesh, multi‑WAN. Ideale per scenari rurali.</p>
-    </div>
-    <div class="card">
-      <h3>🕳 Anonimato & Routing</h3>
-      <p>
-        <span class="badge badge-ok">TorNode</span>
-        <span class="badge badge-off">I2PNode</span><br>
-        <span class="badge badge-ok">PrivacyMesh</span>
-        <span class="badge badge-warn">StealthRoute</span>
-      </p>
-      <p class="small">Routing privato e anonimato, documentato e sotto controllo.</p>
     </div>
   </div>
 </section>
 
-<!-- ORBITAL & STARLINK -->
+<!-- ORBITAL -->
 <section id="space" class="panel" style="display:none;">
-  <h2>📡 Orbital & Starlink</h2>
+  <h2>📡 Orbital & Space</h2>
   <div class="grid">
     <div class="card">
       <h3>🛰 OrbitalWatch</h3>
@@ -175,30 +161,27 @@ Note: microclima stabile, vento leggero.
         <span class="badge badge-warn">SpaceWeather Monitor</span>
         <span class="badge badge-ok">StarlinkNode</span>
       </p>
-      <p class="small">Supporto informativo a orbite, TLE, costellazioni.</p>
     </div>
     <div class="card">
-      <h3>🗺 Mappa Orbite (demo)</h3>
-      <pre>
-[●] Nodo Pragone
-[✶] Orbita Starlink (simbolica)
-[✶] Orbita LEO generica
-      </pre>
-      <p class="small">In futuro: integrazione con visualizzazioni 2D/3D.</p>
+      <h3>🛰 ISS Position</h3>
+      <div id="isspos">In attesa dati...</div>
+      <p class="small">Quando online, mostra la posizione attuale della ISS.</p>
     </div>
   </div>
 </section>
 
-<!-- OFFLINE MAPS & GPS -->
+<!-- MAPS -->
 <section id="maps" class="panel" style="display:none;">
   <h2>🗺 Offline Maps & GPS</h2>
   <div class="grid">
     <div class="card">
       <h3>📍 GPS Nodo</h3>
-      <p><b>Lat:</b> demo<br>
-         <b>Lon:</b> demo<br>
-         <b>Altitudine:</b> demo</p>
-      <p class="small">In futuro: lettura GPS locale del dispositivo.</p>
+      <p id="gpsbox">
+        <b>Lat:</b> demo<br>
+        <b>Lon:</b> demo<br>
+        <b>Altitudine:</b> demo
+      </p>
+      <p class="small">In futuro può usare geolocalizzazione locale.</p>
     </div>
     <div class="card">
       <h3>🗺 Mappa Offline (concetto)</h3>
@@ -207,72 +190,79 @@ Note: microclima stabile, vento leggero.
 [●] Nodo Pragone
 [○] Punto osservazione
       </pre>
-      <p class="small">Supporto concettuale a mappe offline basate su dati OSM.</p>
     </div>
   </div>
 </section>
 
-<!-- MEDIA HUB -->
-<section id="media" class="panel" style="display:none;">
-  <h2>🔥 Media Hub (RedBull TV 6 — concetto)</h2>
+<!-- SPORT HUB -->
+<section id="sport" class="panel" style="display:none;">
+  <h2>🔥 Sport & Action Hub</h2>
   <div class="grid">
     <div class="card">
-      <h3>📺 Canale Sportivo</h3>
+      <h3>🎬 Clip Offline (Demo)</h3>
+      <video width="100%" controls>
+        <source src="assets/sport/demo.mp4" type="video/mp4">
+      </video>
+      <p class="small">Aggiungi i tuoi video in docs/assets/sport/</p>
+    </div>
+    <div class="card">
+      <h3>📺 Link Ufficiali Red Bull</h3>
       <p class="small">
-        Sezione dedicata a contenuti sportivi e dinamici.<br>
-        Qui puoi inserire link a fonti ufficiali o embed legali.
-      </p>
-      <p class="small">
-        Esempio link:<br>
-        <a href="#" onclick="alert('Placeholder link');return false;">Apri canale demo</a>
+        <a href="https://www.redbull.com" target="_blank">Red Bull – sito ufficiale</a><br>
+        <a href="https://www.redbull.com/int-en/tv" target="_blank">Red Bull TV – pagina ufficiale</a>
       </p>
     </div>
     <div class="card">
-      <h3>🎥 Snapshot & Media</h3>
+      <h3>🏁 Eventi Sportivi</h3>
       <pre>
-[Media] snapshot_2026-01-08_16-11.jpg
-[Media] field_photo_01.jpg
+[Evento] Freeride World Tour
+[Evento] Cliff Diving Series
+[Evento] Drift Masters
       </pre>
-      <p class="small">Spazio per foto e media caricati manualmente dall’utente.</p>
     </div>
   </div>
 </section>
 
-<!-- BICHAT RETRO -->
-<section id="chat" class="panel" style="display:none;">
-  <h2>💬 BiChat Retro SIP Root</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>📡 SIP-ROOT CHANNEL</h3>
-      <pre>[SIP-ROOT] > handshake OK
-[SIP-ROOT] > nodo Pragone registrato
-[SIP-ROOT] > latenza media: demo</pre>
-    </div>
-    <div class="card">
-      <h3>💬 BiChat Local</h3>
-      <pre>[BiChat] 14:22 > Nodo: pronto.
-[BiChat] 14:22 > Utente: stato moduli?
-[BiChat] 14:22 > Nodo: demo.</pre>
-    </div>
-    <div class="card">
-      <h3>🛰 GhostFeed Live</h3>
-      <pre>[GhostFeed] OrbitalWatch: demo
-[GhostFeed] AgroWatch: demo
-[GhostFeed] CyberDefense: demo</pre>
-    </div>
+<!-- LOCAL CHAT -->
+<section id="localchat" class="panel" style="display:none;">
+  <h2>💬 Chat Locale</h2>
+  <div class="card">
+    <div id="chatlog"></div>
+    <input id="chatinput" type="text" placeholder="Scrivi e premi Invio...">
+    <p class="small">Chat locale, offline, simulata dal nodo.</p>
   </div>
 </section>
 
-<!-- ACADEMY & DOCS -->
-<section id="academy" class="panel" style="display:none;">
-  <h2>🎓 GhostTrack Academy & Docs</h2>
+<!-- ASTRO OBSERVATORY -->
+<section id="astro2" class="panel" style="display:none;">
+  <h2>🌌 Cosmic Observatory</h2>
   <div class="grid">
     <div class="card">
-      <h3>📖 Come leggere la telemetria</h3>
+      <h3>🌙 Fase Lunare</h3>
+      <div id="moonphase">In attesa dati...</div>
+    </div>
+    <div class="card">
+      <h3>🔭 James Webb – NASA Feed</h3>
       <p class="small">
-        Uptime → stabilità del nodo<br>
-        Load Avg → carico di lavoro<br>
-        Disco → spazio residuo<br>
+        <a href="https://www.nasa.gov/image-feature/category/james-webb-space-telescope/" target="_blank">
+          NASA JWST – immagini ufficiali
+        </a>
+      </p>
+      <p class="small">Puoi salvare immagini in docs/assets/astro/ per uso offline.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ACADEMY -->
+<section id="academy" class="panel" style="display:none;">
+  <h2>🎓 GhostTrack Academy</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>📖 Telemetria</h3>
+      <p class="small">
+        Uptime → stabilità<br>
+        Load → carico<br>
+        Disco → spazio<br>
         Stato → OK / WARN / CRIT
       </p>
     </div>
@@ -280,69 +270,42 @@ Note: microclima stabile, vento leggero.
       <h3>📘 Documentazione</h3>
       <p class="small">
         - Architettura<br>
-        - Domini<br>
         - Moduli<br>
-        - Filosofia<br>
-        - Roadmap
+        - Reti<br>
+        - Astro<br>
+        - Sport
       </p>
-      <p class="small">Questa sezione può puntare alla Wiki su GitHub.</p>
     </div>
   </div>
 </section>
 
 <!-- CITIZEN SCIENCE -->
 <section id="citizen" class="panel" style="display:none;">
-  <h2>✨ Citizen Science Hub</h2>
+  <h2>✨ Citizen Science</h2>
   <div class="grid">
     <div class="card">
       <h3>📓 Osservazioni</h3>
-      <pre>[Osservazione] 2026-01-08
+      <pre>
+[Osservazione] 2026-01-08
 Fauna: demo
 Flora: demo
-Anomalie: demo</pre>
-      <p class="small">Spazio per note su flora, fauna, fenomeni locali.</p>
-    </div>
-    <div class="card">
-      <h3>📤 Esportazione (concetto)</h3>
-      <p class="small">
-        I dati possono essere esportati manualmente in formato CSV/JSON<br>
-        per analisi esterne o condivisione con enti.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ASTRO-TELEMETRIA -->
-<section id="astro" class="panel" style="display:none;">
-  <h2>🔭 Astro‑Telemetria & “Astrologia Tecnica”</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>🌠 Cielo del Nodo (demo)</h3>
-      <pre>
-[✶] Costellazione tecnica:
-    - CyberDefense
-    - AgroWatch
-    - OrbitalWatch
-    - MeshNode
+Anomalie: demo
       </pre>
-      <p class="small">Rappresentazione simbolica: ogni modulo è una “stella” nella costellazione del nodo.</p>
     </div>
     <div class="card">
-      <h3>🜁 “Oroscopo del Nodo” (metafora)</h3>
+      <h3>📤 Esportazione</h3>
       <p class="small">
-        - Se i moduli agro sono forti → giornata favorevole a osservazioni ambientali.<br>
-        - Se la rete è instabile → prudenza nelle sincronizzazioni.<br>
-        - Se OrbitalWatch è attivo → buona finestra per osservazioni satellitari.
+        I dati possono essere esportati manualmente in CSV/JSON
+        per analisi esterne.
       </p>
-      <p class="small">È una metafora operativa, non astrologia reale.</p>
     </div>
   </div>
 </section>
 
 <script>
+// TAB SWITCH
 const tabs = document.querySelectorAll('.tab');
 const panels = document.querySelectorAll('.panel');
-
 tabs.forEach(tab => {
   tab.addEventListener('click', () => {
     tabs.forEach(t => t.classList.remove('active'));
@@ -351,6 +314,105 @@ tabs.forEach(tab => {
     document.getElementById(tab.dataset.target).style.display = 'block';
   });
 });
+
+// CHAT LOCALE
+const chatLog = document.getElementById("chatlog");
+const chatInput = document.getElementById("chatinput");
+if (chatInput) {
+  chatInput.addEventListener("keydown", e => {
+    if (e.key === "Enter") {
+      const msg = chatInput.value.trim();
+      if (!msg) return;
+      chatLog.innerHTML += `<div><b>Tu:</b> ${msg}</div>`;
+      chatInput.value = "";
+      chatLog.scrollTop = chatLog.scrollHeight;
+      setTimeout(() => {
+        chatLog.innerHTML += `<div><b>Nodo:</b> Ricevuto. Modalità offline demo.</div>`;
+        chatLog.scrollTop = chatLog.scrollHeight;
+      }, 300);
+    }
+  });
+}
+
+// ENVIRONMENT API (Open-Meteo)
+const envApi = {
+  weather: "https://api.open-meteo.com/v1/forecast",
+  air: "https://air-quality-api.open-meteo.com/v1/air-quality"
+};
+const microclimaBox = document.getElementById('microclima');
+const agroBox = document.getElementById('agro');
+function getLocationAndUpdateEnv() {
+  if (!navigator.geolocation) {
+    microclimaBox.innerHTML = "<b>Errore:</b> Geolocalizzazione non supportata.";
+    return;
+  }
+  navigator.geolocation.getCurrentPosition(pos => {
+    const lat = pos.coords.latitude;
+    const lon = pos.coords.longitude;
+    updateEnvironment(lat, lon);
+  }, () => {
+    microclimaBox.innerHTML = "<b>Errore:</b> Geolocalizzazione negata o fallita.";
+  });
+}
+async function updateEnvironment(lat, lon) {
+  try {
+    const weatherUrl = `${envApi.weather}?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,pressure_msl,wind_speed_10m`;
+    const airUrl = `${envApi.air}?latitude=${lat}&longitude=${lon}&hourly=pm10,pm2_5,carbon_monoxide,ozone`;
+    const [wRes, aRes] = await Promise.all([fetch(weatherUrl), fetch(airUrl)]);
+    const wData = await wRes.json();
+    const aData = await aRes.json();
+    const c = wData.current || {};
+    const h = aData.hourly || {};
+    microclimaBox.innerHTML = `
+      <b>Lat:</b> ${lat.toFixed(4)}<br>
+      <b>Lon:</b> ${lon.toFixed(4)}<br>
+      <b>Temperatura:</b> ${c.temperature_2m ?? 'n/d'} °C<br>
+      <b>Umidità:</b> ${c.relative_humidity_2m ?? 'n/d'} %<br>
+      <b>Pressione:</b> ${c.pressure_msl ?? 'n/d'} hPa<br>
+      <b>Vento:</b> ${c.wind_speed_10m ?? 'n/d'} km/h
+    `;
+    const idx = 0;
+    agroBox.innerHTML = `
+      <span class="badge badge-ok">SoilSense</span>
+      <span class="badge badge-ok">RainPulse</span>
+      <span class="badge badge-warn">WindWatch</span><br>
+      <span class="badge badge-off">ForestGuard</span>
+      <span class="badge badge-off">GeoSentinel</span>
+      <p class="small">
+        PM10: ${h.pm10 ? h.pm10[idx] : 'n/d'} µg/m³<br>
+        PM2.5: ${h.pm2_5 ? h.pm2_5[idx] : 'n/d'} µg/m³<br>
+        CO: ${h.carbon_monoxide ? h.carbon_monoxide[idx] : 'n/d'} µg/m³<br>
+        Ozono: ${h.ozone ? h.ozone[idx] : 'n/d'} µg/m³
+      </p>
+    `;
+  } catch {
+    microclimaBox.innerHTML = "<b>Errore:</b> impossibile contattare le API.";
+  }
+}
+document.querySelector('.tab[data-target="env"]').addEventListener('click', getLocationAndUpdateEnv);
+
+// ISS POSITION
+fetch("http://api.open-notify.org/iss-now.json")
+  .then(r => r.json())
+  .then(d => {
+    const lat = d.iss_position.latitude;
+    const lon = d.iss_position.longitude;
+    document.getElementById("isspos").innerHTML = `Lat: ${lat}<br>Lon: ${lon}`;
+  })
+  .catch(() => {
+    document.getElementById("isspos").innerHTML = "Impossibile ottenere dati ISS.";
+  });
+
+// MOON PHASE (demo con Open-Meteo)
+fetch("https://api.open-meteo.com/v1/forecast?latitude=45&longitude=9&daily=moon_phase&timezone=auto")
+  .then(r => r.json())
+  .then(d => {
+    const phase = d.daily && d.daily.moon_phase ? d.daily.moon_phase[0] : "n/d";
+    document.getElementById("moonphase").innerHTML = "Fase lunare: " + phase;
+  })
+  .catch(() => {
+    document.getElementById("moonphase").innerHTML = "Impossibile ottenere dati lunari.";
+  });
 </script>
 
 </body>
