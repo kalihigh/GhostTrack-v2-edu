@@ -29,7 +29,6 @@ a:hover { text-decoration:underline; }
 #chatinput { width:100%; margin-top:8px; padding:6px; border-radius:4px; border:1px solid #1b2235; background:#050814; color:#e5f7ff; }
 video { border-radius:6px; border:1px solid #1b2235; }
 </style>
-  <link rel="stylesheet" href="assets/css/ghosttrack.css">
 </head>
 <body>
 
@@ -295,36 +294,5 @@ fetch("https://api.open-meteo.com/v1/forecast?latitude=45&longitude=9&daily=moon
     document.getElementById("moonphase").innerHTML = "Impossibile ottenere dati lunari.";
 <<script src="assets/js/ghosttrack.js"></script>
 <script src="assets/js/ghosttrack.js"></script>
-
-  <section id="menuPanel" class="panel" style="display:none;">
-    <h2>📡 Menu Operativo</h2>
-
-    <div class="card">
-      <h3>🎧 Podcast</h3>
-      <audio controls preload="none">
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-      </audio>
-    </div>
-
-    <div class="card">
-      <h3>📻 Radioamatori</h3>
-      <audio controls preload="none">
-        <source src="https://icecast.radiofrance.fr/franceinter-midfi.mp3" type="audio/mpeg">
-      </audio>
-      <p class="muted">Stream pubblico; sostituisci l'URL con il tuo stream preferito.</p>
-    </div>
-
-    <div class="card">
-      <h3>🌌 Base del Cielo Live</h3>
-      <div class="video-wrap">
-        <iframe width="100%" height="220"
-                src="https://www.youtube.com/embed/live_stream?channel=UCakgsb0w7QB0VHdnCc-OVEA"
-                frameborder="0" allowfullscreen></iframe>
-      </div>
-      <p class="muted">Embed YouTube live; sostituisci con il canale live desiderato.</p>
-    </div>
-
-  </section>
-
 </body> 
 </html>

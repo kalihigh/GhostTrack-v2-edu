@@ -29,7 +29,6 @@ a:hover { text-decoration:underline; }
 #chatinput { width:100%; margin-top:8px; padding:6px; border-radius:4px; border:1px solid #1b2235; background:#050814; color:#e5f7ff; }
 video { border-radius:6px; border:1px solid #1b2235; }
 </style>
-  <link rel="stylesheet" href="assets/css/ghosttrack.css">
 </head>
 <body>
 
@@ -39,6 +38,7 @@ video { border-radius:6px; border:1px solid #1b2235; }
   <h2>Premium Cosmic Node — Pragone Constellation</h2>
   <div class="tagline">Osservazione etica · Territorio · Orbita · Sport · Reti · Astro · Chat locale</div>
 </header>
+
 <div id="tabs">
   <div class="tab active" data-target="mission">🛰 Mission</div>
   <div class="tab" data-target="env">🌍 Environment</div>
@@ -51,6 +51,7 @@ video { border-radius:6px; border:1px solid #1b2235; }
   <div class="tab" data-target="academy">🎓 Docs</div>
   <div class="tab" data-target="citizen">✨ Citizen</div>
 </div>
+
 <!-- MISSION CONTROL -->
 <section id="mission" class="panel">
   <h2>🛰 Mission Control — System & Telemetry</h2>
@@ -66,6 +67,7 @@ video { border-radius:6px; border:1px solid #1b2235; }
       </p>
       <p class="small">In futuro può leggere da docs/telemetry.json.</p>
     </div>
+    <div class="card">
       <h3>🧱 Sistema Core</h3>
       <p>
         <span class="badge badge-ok">NodeCore</span>
@@ -75,6 +77,9 @@ video { border-radius:6px; border:1px solid #1b2235; }
         <span class="badge badge-ok">ConfigSystem</span><br>
         <span class="badge badge-warn">RepairEngine</span>
         <span class="badge badge-ok">SyncEngine</span>
+      </p>
+    </div>
+    <div class="card">
       <h3>🔧 Rituali</h3>
       <pre>
 MasterRitual   ✔ ultima esecuzione: demo
@@ -83,11 +88,15 @@ OmegaRitual    ⏳ in attesa
 AutoSync       ✔ attivo
 SuperCommit    ✔ attivo
       </pre>
+    </div>
   </div>
 </section>
+
 <!-- ENVIRONMENT & AGRO -->
 <section id="env" class="panel" style="display:none;">
   <h2>🌍 Environment & Agro</h2>
+  <div class="grid">
+    <div class="card">
       <h3>🌡 Microclima</h3>
       <p id="microclima">
         <b>Lat:</b> demo<br>
@@ -96,7 +105,10 @@ SuperCommit    ✔ attivo
         <b>Umidità:</b> demo<br>
         <b>Pressione:</b> demo<br>
         <b>Vento:</b> demo
+      </p>
       <p class="small">Si aggiorna con geolocalizzazione + API meteo quando online.</p>
+    </div>
+    <div class="card">
       <h3>🌾 AgroWatch</h3>
       <p id="agro">
         <span class="badge badge-ok">SoilSense</span>
@@ -104,60 +116,113 @@ SuperCommit    ✔ attivo
         <span class="badge badge-warn">WindWatch</span><br>
         <span class="badge badge-off">ForestGuard</span>
         <span class="badge badge-off">GeoSentinel</span>
+      </p>
       <p class="small">Mostra anche qualità aria quando online.</p>
+    </div>
+  </div>
+</section>
+
 <!-- SECURITY & NETWORK -->
 <section id="cyber" class="panel" style="display:none;">
   <h2>🛡 Security & Network</h2>
+  <div class="grid">
+    <div class="card">
       <h3>🔐 CyberDefense</h3>
+      <p>
         <span class="badge badge-ok">CyberDefense Core</span>
         <span class="badge badge-ok">ThreatWatch</span><br>
         <span class="badge badge-ok">Intrusion Sentinel</span>
         <span class="badge badge-ok">Network Shield</span><br>
         <span class="badge badge-warn">ZeroTrust Layer</span>
         <span class="badge badge-ok">Integrity Guardian</span>
+      </p>
+    </div>
+    <div class="card">
       <h3>🌐 Mesh & MultiWAN</h3>
+      <p>
         <span class="badge badge-ok">MeshNode</span>
         <span class="badge badge-ok">LinkWatch</span><br>
         <span class="badge badge-ok">MultiWAN Engine</span>
         <span class="badge badge-warn">Fallback System</span>
+      </p>
+    </div>
+  </div>
+</section>
+
 <!-- ORBITAL -->
 <section id="space" class="panel" style="display:none;">
   <h2>📡 Orbital & Space</h2>
+  <div class="grid">
+    <div class="card">
       <h3>🛰 OrbitalWatch</h3>
+      <p>
         <span class="badge badge-ok">Satellite Tracker</span>
         <span class="badge badge-ok">TLE Engine</span><br>
         <span class="badge badge-warn">SpaceWeather Monitor</span>
         <span class="badge badge-ok">StarlinkNode</span>
+      </p>
+    </div>
+    <div class="card">
       <h3>🛰 ISS Position</h3>
       <div id="isspos">In attesa dati...</div>
       <p class="small">Quando online, mostra la posizione attuale della ISS.</p>
+    </div>
+  </div>
+</section>
+
 <!-- MAPS -->
 <section id="maps" class="panel" style="display:none;">
   <h2>🗺 Offline Maps & GPS</h2>
+  <div class="grid">
+    <div class="card">
       <h3>📍 GPS Nodo</h3>
       <p id="gpsbox">
+        <b>Lat:</b> demo<br>
+        <b>Lon:</b> demo<br>
         <b>Altitudine:</b> demo
+      </p>
       <p class="small">In futuro può usare geolocalizzazione locale.</p>
+    </div>
+    <div class="card">
       <h3>🗺 Mappa Offline (concetto)</h3>
+      <pre>
 [██] Tiles OSM offline
 [●] Nodo Pragone
 [○] Punto osservazione
+      </pre>
+    </div>
+  </div>
+</section>
+
 <!-- SPORT HUB -->
 <section id="sport" class="panel" style="display:none;">
   <h2>🔥 Sport & Action Hub</h2>
+  <div class="grid">
+    <div class="card">
       <h3>🎬 Clip Offline (Demo)</h3>
       <video width="100%" controls>
         <source src="assets/sport/demo.mp4" type="video/mp4">
       </video>
       <p class="small">Aggiungi i tuoi video in docs/assets/sport/</p>
+    </div>
+    <div class="card">
       <h3>📺 Link Ufficiali Red Bull</h3>
       <p class="small">
         <a href="https://www.redbull.com" target="_blank">Red Bull – sito ufficiale</a><br>
         <a href="https://www.redbull.com/int-en/tv" target="_blank">Red Bull TV – pagina ufficiale</a>
+      </p>
+    </div>
+    <div class="card">
       <h3>🏁 Eventi Sportivi</h3>
+      <pre>
 [Evento] Freeride World Tour
 [Evento] Cliff Diving Series
 [Evento] Drift Masters
+      </pre>
+    </div>
+  </div>
+</section>
+
 <!-- LOCAL CHAT -->
 <section id="localchat" class="panel" style="display:none;">
   <h2>💬 Chat Locale</h2>
@@ -165,41 +230,78 @@ SuperCommit    ✔ attivo
     <div id="chatlog"></div>
     <input id="chatinput" type="text" placeholder="Scrivi e premi Invio...">
     <p class="small">Chat locale, offline, simulata dal nodo.</p>
+  </div>
+</section>
+
 <!-- ASTRO OBSERVATORY -->
 <section id="astro2" class="panel" style="display:none;">
   <h2>🌌 Cosmic Observatory</h2>
+  <div class="grid">
+    <div class="card">
       <h3>🌙 Fase Lunare</h3>
       <div id="moonphase">In attesa dati...</div>
+    </div>
+    <div class="card">
       <h3>🔭 James Webb – NASA Feed</h3>
+      <p class="small">
         <a href="https://www.nasa.gov/image-feature/category/james-webb-space-telescope/" target="_blank">
           NASA JWST – immagini ufficiali
         </a>
+      </p>
       <p class="small">Puoi salvare immagini in docs/assets/astro/ per uso offline.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ACADEMY -->
 <section id="academy" class="panel" style="display:none;">
   <h2>🎓 GhostTrack Academy</h2>
+  <div class="grid">
+    <div class="card">
       <h3>📖 Telemetria</h3>
+      <p class="small">
         Uptime → stabilità<br>
         Load → carico<br>
         Disco → spazio<br>
         Stato → OK / WARN / CRIT
+      </p>
+    </div>
+    <div class="card">
       <h3>📘 Documentazione</h3>
+      <p class="small">
         - Architettura<br>
         - Moduli<br>
         - Reti<br>
         - Astro<br>
         - Sport
+      </p>
+    </div>
+  </div>
+</section>
+
 <!-- CITIZEN SCIENCE -->
 <section id="citizen" class="panel" style="display:none;">
   <h2>✨ Citizen Science</h2>
+  <div class="grid">
+    <div class="card">
       <h3>📓 Osservazioni</h3>
+      <pre>
 [Osservazione] 2026-01-08
 Fauna: demo
 Flora: demo
 Anomalie: demo
+      </pre>
+    </div>
+    <div class="card">
       <h3>📤 Esportazione</h3>
+      <p class="small">
         I dati possono essere esportati manualmente in CSV/JSON
         per analisi esterne.
+      </p>
+    </div>
+  </div>
+</section>
+
 <script>
 // TAB SWITCH
 const tabs = document.querySelectorAll('.tab');
@@ -212,6 +314,7 @@ tabs.forEach(tab => {
     document.getElementById(tab.dataset.target).style.display = 'block';
   });
 });
+
 // CHAT LOCALE
 const chatLog = document.getElementById("chatlog");
 const chatInput = document.getElementById("chatinput");
@@ -228,7 +331,9 @@ if (chatInput) {
         chatLog.scrollTop = chatLog.scrollHeight;
       }, 300);
     }
+  });
 }
+
 // ENVIRONMENT API (Open-Meteo)
 const envApi = {
   weather: "https://api.open-meteo.com/v1/forecast",
@@ -247,6 +352,8 @@ function getLocationAndUpdateEnv() {
     updateEnvironment(lat, lon);
   }, () => {
     microclimaBox.innerHTML = "<b>Errore:</b> Geolocalizzazione negata o fallita.";
+  });
+}
 async function updateEnvironment(lat, lon) {
   try {
     const weatherUrl = `${envApi.weather}?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,pressure_msl,wind_speed_10m`;
@@ -271,13 +378,19 @@ async function updateEnvironment(lat, lon) {
       <span class="badge badge-warn">WindWatch</span><br>
       <span class="badge badge-off">ForestGuard</span>
       <span class="badge badge-off">GeoSentinel</span>
+      <p class="small">
         PM10: ${h.pm10 ? h.pm10[idx] : 'n/d'} µg/m³<br>
         PM2.5: ${h.pm2_5 ? h.pm2_5[idx] : 'n/d'} µg/m³<br>
         CO: ${h.carbon_monoxide ? h.carbon_monoxide[idx] : 'n/d'} µg/m³<br>
         Ozono: ${h.ozone ? h.ozone[idx] : 'n/d'} µg/m³
+      </p>
+    `;
   } catch {
     microclimaBox.innerHTML = "<b>Errore:</b> impossibile contattare le API.";
+  }
+}
 document.querySelector('.tab[data-target="env"]').addEventListener('click', getLocationAndUpdateEnv);
+
 // ISS POSITION
 fetch("http://api.open-notify.org/iss-now.json")
   .then(r => r.json())
@@ -288,43 +401,20 @@ fetch("http://api.open-notify.org/iss-now.json")
   })
   .catch(() => {
     document.getElementById("isspos").innerHTML = "Impossibile ottenere dati ISS.";
+  });
+
 // MOON PHASE (demo con Open-Meteo)
 fetch("https://api.open-meteo.com/v1/forecast?latitude=45&longitude=9&daily=moon_phase&timezone=auto")
+  .then(r => r.json())
+  .then(d => {
     const phase = d.daily && d.daily.moon_phase ? d.daily.moon_phase[0] : "n/d";
     document.getElementById("moonphase").innerHTML = "Fase lunare: " + phase;
+  })
+  .catch(() => {
     document.getElementById("moonphase").innerHTML = "Impossibile ottenere dati lunari.";
+  });
 <<script src="assets/js/ghosttrack.js"></script>
 <script src="assets/js/ghosttrack.js"></script>
-
-  <section id="menuPanel" class="panel" style="display:none;">
-    <h2>📡 Menu Operativo</h2>
-
-    <div class="card">
-      <h3>🎧 Podcast</h3>
-      <audio controls preload="none">
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-      </audio>
-    </div>
-
-    <div class="card">
-      <h3>📻 Radioamatori</h3>
-      <audio controls preload="none">
-        <source src="https://icecast.radiofrance.fr/franceinter-midfi.mp3" type="audio/mpeg">
-      </audio>
-      <p class="muted">Stream pubblico; sostituisci l'URL con il tuo stream preferito.</p>
-    </div>
-
-    <div class="card">
-      <h3>🌌 Base del Cielo Live</h3>
-      <div class="video-wrap">
-        <iframe width="100%" height="220"
-                src="https://www.youtube.com/embed/live_stream?channel=UCakgsb0w7QB0VHdnCc-OVEA"
-                frameborder="0" allowfullscreen></iframe>
-      </div>
-      <p class="muted">Embed YouTube live; sostituisci con il canale live desiderato.</p>
-    </div>
-
-  </section>
 
 </body> 
 </html>

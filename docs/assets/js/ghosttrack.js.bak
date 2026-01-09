@@ -287,13 +287,3 @@ const GhostTrackAuth = (function () {
 
   return { enableOperatorMode };
 })();
-
-/* GhostTrack Menu Module */
-const GhostTrackMenu = {
-  toggle() {
-    const panel = document.getElementById("menuPanel");
-    if (!panel) return console.warn("menuPanel non trovato");
-    panel.style.display = panel.style.display === "none" ? "block" : "none";
-    if (panel.style.display === "block") panel.scrollIntoView({behavior: "smooth"});
-  }
-};
