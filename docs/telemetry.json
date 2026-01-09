@@ -1,11 +1,17 @@
 {
-  "node_name": "Pragone Node",
-  "location": "Pragone, Pietra de’ Giorgi, IT",
-  "timestamp_utc": "2026-01-07T22:27:40Z",
-  "uptime": "up 1 hour, 38 minutes",
-  "loadavg": "",
-  "disk_usage": "27% used (164G free)",
-  "ip_address": "",
-  "status": "online",
-  "heartbeat": true
+  "node": {
+    "uptime": "24512",
+    "load": "0.31",
+    "disk_used": "14%",
+    "ip": "192.168.1.50",
+    "battery": "92%",
+    "network": "WiFi",
+    "mesh_status": "active"
+  },
+  "environment": {
+    "temperature": "11.8",
+    "humidity": "71",
+    "pressure": "1014",
+    "wind": "3.8"
+  }
 }
