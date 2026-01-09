@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-from flask import Flask, jsonify, request, abort
+from flask import datetime
+import Flask, jsonify, request, abort
 import io, json, os, datetime
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
@@ -38,7 +39,7 @@ def transact(wallet_id):
         if w["id"] == wallet_id:
             w["impulsi"] = max(0, w.get("impulsi", 0) + int(payload["amount"]))
             entry = {
-                "ts": datetime.datetime.utcnow().isoformat() + "Z",
+                "ts": datetime.datetime.now(datetime.timezone.utc).isoformat(),
                 "type": payload["type"],
                 "amount": int(payload["amount"]),
                 "meta": payload.get("meta", {})
