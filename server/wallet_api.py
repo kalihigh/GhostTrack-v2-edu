@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-from flask import datetime
-import Flask, jsonify, request, abort
-import io, json, os, datetime
+import datetime
+import io, json, os
+
+from flask import Flask, request, jsonify, abort
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 DATA_FILE = os.path.join(ROOT, "docs", "data", "energy_wallets.json")
