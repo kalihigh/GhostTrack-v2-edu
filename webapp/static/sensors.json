@@ -1,11 +1,10 @@
 {
   "service": "GhostTrack Sensors Registry",
   "version": "1.0",
-  "description": "Registro centrale di moduli, sensori e protocolli della costellazione GhostTrack-v3.",
   "modules": {
     "cyberdefense": {
       "description": "Superficie di attacco, allarmi, difesa attiva.",
-      "protocols": ["http", "https"],
+      "protocols": ["http"],
       "sensors": [
         {
           "id": "cyberdefense_uptime",
@@ -15,6 +14,7 @@
         }
       ]
     },
+
     "orbital_space": {
       "description": "Orbite, feed satellitari, spazio vicino.",
       "protocols": ["http", "https"],
@@ -27,6 +27,7 @@
         }
       ]
     },
+
     "agro_ambiente": {
       "description": "Sensori locali, meteo, territorio, suolo.",
       "protocols": ["http", "mqtt"],
@@ -39,6 +40,7 @@
         }
       ]
     },
+
     "resilienza": {
       "description": "Continuità operativa, allarmi, piani B.",
       "protocols": ["http"],
@@ -47,10 +49,11 @@
           "id": "resilience_core",
           "type": "http",
           "endpoint": "/api/resilienza/status",
-          "description": "Stato di resilienza del nodo GhostTrack."
+          "description": "Heartbeat e stato di resilienza del nodo GhostTrack."
         }
       ]
     },
+
     "reti_mesh": {
       "description": "Topologia, link radio, percorsi.",
       "protocols": ["http", "icmp"],
@@ -63,6 +66,7 @@
         }
       ]
     },
+
     "ai_analisi": {
       "description": "Inferenze, correlazioni, scenari.",
       "protocols": ["http"],
