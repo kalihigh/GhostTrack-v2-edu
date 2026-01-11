@@ -1,3 +1,36 @@
-<!doctype html><html><head><meta charset='utf-8'><title>GhostTrack Dashboard</title><link rel='stylesheet' href='/static/gt_dark.css'></head><body>
-<h1>🧭 GhostTrack‑v2 — Costellazione Moduli</h1>
-<footer><p class='muted'>GhostTrack‑v2 © Roberto</p></footer></body></html>
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <title>GhostTrack Console</title>
+  <link rel="stylesheet" href="/static/gt_dark.css">
+  <script defer src="/static/gt_status.js"></script>
+</head>
+<body>
+<div class="gt-dashboard">
+  <section class="gt-section gt-section-main">
+    <h1>GhostTrack Console</h1>
+    <p class="gt-subtitle">Costellazione operativa · Versione 3.0 · Nodo locale</p>
+    <div class="gt-status-row">
+      <div class="gt-status-card" id="gt-api-status-card">
+        <h2>Stato API</h2>
+        <p class="gt-status-line">
+          <span class="gt-pill" id="gt-api-pill">SENSORE</span>
+          <span id="gt-api-status-text">In attesa…</span>
+        </p>
+        <p class="gt-status-meta" id="gt-api-meta"></p>
+      </div>
+      <div class="gt-status-card">
+        <h2>Ambiente</h2>
+        <p class="gt-status-line">
+          <span class="gt-pill gt-pill-env" id="gt-env-pill">Sconosciuto</span>
+        </p>
+        <ul class="gt-meta-list">
+          <li><strong>Host:</strong> <span id="gt-env-host"></span></li>
+          <li><strong>Base API:</strong> <span id="gt-env-base-url"></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+<section class='gt-section'><h2>dr. HighKali</h2><a class='btn' href='/webapp/static/panels/dr_highkali.html'>Apri pannello</a></section>
+<footer><p class='muted'>GhostTrack‑v2 © Roberto — Sistema Operativo Etico</p></footer></div></body></html>
