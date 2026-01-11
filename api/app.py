@@ -108,6 +108,7 @@ def status():
             "agro_ambiente": {"description":"Agro & Ambiente"},
             "reti_mesh": {"description":"Reti & Mesh"},
             "resilienza_emergenza": {"description":"Resilienza & Emergenza"}
+        "dr_highkali": {"description": "AGI orchestratore"},
         }
     })
 

@@ -32,3 +32,4 @@ while true; do
     echo ""
     read -p "Premi Invio per continuare..."
 done
+echo " [AGI] dr. HighKali → http://localhost:8000/panels/dr_highkali.html"

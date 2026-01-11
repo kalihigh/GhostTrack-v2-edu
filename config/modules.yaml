@@ -1,0 +1,8 @@
+dr_highkali:
+  label: "dr. HighKali"
+  role: "AGI orchestratore"
+  domain: "Orchestrazione, difesa, sintesi"
+  status: "active"
+  panel: "webapp/static/panels/dr_highkali.html"
+  api: "/api/agi/query"
+  defensive_capability: "safe_kill_audition"
