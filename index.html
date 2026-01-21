@@ -5,169 +5,26 @@
   <title>GhostTrack · Quantum HyperOS Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Tema dark quantico -->
+  <!-- Tema Dark Stellar Space Hub -->
   <link rel="stylesheet" href="webapp/static/gt_dark.css">
-
-  <style>
-    /* Layout industriale minimale */
-    body {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    header {
-      border-bottom: 1px solid #222230;
-      padding: 12px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: radial-gradient(circle at top left, #101020, #05050a);
-    }
-    header .brand {
-      font-size: 1.1rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #00e0c0;
-    }
-    header .env {
-      font-size: 0.8rem;
-      color: #8888aa;
-    }
-    main {
-      flex: 1;
-      display: grid;
-      grid-template-columns: 260px 1fr;
-      gap: 0;
-      min-height: 0;
-    }
-    nav {
-      border-right: 1px solid #222230;
-      padding: 16px 12px;
-      background: #05050b;
-    }
-    nav h2 {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      margin-bottom: 10px;
-      color: #7777aa;
-    }
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 18px 0;
-    }
-    nav li {
-      margin-bottom: 6px;
-    }
-    nav a {
-      display: block;
-      padding: 6px 8px;
-      border-radius: 4px;
-      font-size: 0.9rem;
-      color: #c0c0d8;
-      border: 1px solid transparent;
-    }
-    nav a:hover {
-      border-color: #00e0c0;
-      background: #0b0b14;
-    }
-    nav .section-label {
-      margin-top: 16px;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: #555577;
-    }
-    section#content {
-      padding: 18px 20px;
-      overflow-y: auto;
-    }
-    .grid-2 {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 16px;
-    }
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-    .status-bar {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 16px;
-      flex-wrap: wrap;
-    }
-    .status-pill {
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid #222230;
-      background: #080812;
-      font-size: 0.8rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #00e0c0;
-      box-shadow: 0 0 6px rgba(0, 224, 192, 0.7);
-    }
-    footer {
-      border-top: 1px solid #222230;
-      padding: 8px 16px;
-      font-size: 0.75rem;
-      color: #777799;
-      display: flex;
-      justify-content: space-between;
-      background: #05050a;
-    }
-    .tag {
-      display: inline-block;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-size: 0.7rem;
-      border: 1px solid #333344;
-      color: #a0a0c0;
-      margin-left: 4px;
-    }
-    .pill-critical {
-      border-color: #ff4b6e;
-      color: #ff9fb0;
-    }
-    .pill-stable {
-      border-color: #00e0c0;
-      color: #a0ffe9;
-    }
-    .pill-observing {
-      border-color: #ffaa33;
-      color: #ffd9a0;
-    }
-    .mono {
-      font-family: "JetBrains Mono", "Fira Code", monospace;
-      font-size: 0.8rem;
-    }
-  </style>
 
   <!-- Loader pannelli -->
   <script src="webapp/static/panel_loader.js"></script>
-  <!-- Logica quantica avanzata -->
+
+  <!-- Logica quantica -->
   <script src="webapp/static/quantum_advanced.js"></script>
 </head>
+
 <body>
   <header>
     <div>
       <div class="brand">GHOSTTRACK · QUANTUM HYPEROS</div>
-      <div class="env mono">Public Observatory · GitHub Pages · kalihigh/GhostTrack-v2-edu</div>
+      <div class="env mono">Public Observatory · GitHub Pages</div>
     </div>
     <div class="mono">
       <span class="tag">Quantum Layer</span>
-      <span class="tag">Read‑only Snapshot</span>
-      <span class="tag">Static Serve</span>
+      <span class="tag">Static Snapshot</span>
+      <span class="tag">Stellar Hub</span>
     </div>
   </header>
 
@@ -176,7 +33,7 @@
       <h2>Dashboard</h2>
       <ul>
         <li><a href="#quantum-overview" onclick="scrollToSection('quantum-overview');return false;">Quantum Overview</a></li>
-        <li><a href="#quantum-metrics" onclick="scrollToSection('quantum-metrics');return false;">Metrics &amp; Charts</a></li>
+        <li><a href="#quantum-metrics" onclick="scrollToSection('quantum-metrics');return false;">Metrics & Charts</a></li>
         <li><a href="#quantum-stream" onclick="scrollToSection('quantum-stream');return false;">Live Stream</a></li>
         <li><a href="#quantum-logs" onclick="scrollToSection('quantum-logs');return false;">Event Log</a></li>
       </ul>
@@ -191,108 +48,121 @@
 
       <div class="section-label">Repository</div>
       <ul>
-        <li><a href="https://github.com/kalihigh/GhostTrack-v2-edu" target="_blank">GitHub · GhostTrack-v2-edu</a></li>
+        <li><a href="https://github.com/kalihigh/GhostTrack-v2-edu" target="_blank">GitHub Repo</a></li>
       </ul>
     </nav>
 
     <section id="content">
+
+      <!-- QUANTUM OVERVIEW -->
       <div id="quantum-overview" class="quantum-panel">
         <h2>Quantum Overview</h2>
+
         <div class="status-bar">
           <div class="status-pill pill-stable">
             <span class="status-dot"></span>
-            Quantum Mesh: <span class="mono" id="status-modules">modules_active: ?</span>
+            Quantum Mesh: <span class="mono" id="status-modules">loading…</span>
           </div>
+
           <div class="status-pill pill-observing">
-            Snapshot:
-            <span class="mono" id="status-snapshot">loading…</span>
+            Snapshot: <span class="mono" id="status-snapshot">loading…</span>
           </div>
+
           <div class="status-pill pill-critical">
-            Health:
-            <span class="mono" id="status-health">unknown</span>
+            Health: <span class="mono" id="status-health">unknown</span>
           </div>
         </div>
+
         <pre id="quantum-identity-block">Caricamento identità quantica…</pre>
       </div>
 
+      <!-- METRICS -->
       <div class="grid-2" id="quantum-metrics">
         <div class="quantum-panel">
           <h2>Quantum Metrics · Modules Active</h2>
-          <!-- Pannello grafico -->
           <div data-include="webapp/static/panels/quantum/quantum_charts.html"></div>
         </div>
+
         <div class="quantum-panel">
-          <h2>Quantum Health &amp; Resonance</h2>
+          <h2>Quantum Health & Resonance</h2>
           <div data-include="webapp/static/panels/quantum/quantum_health.html"></div>
           <div data-include="webapp/static/panels/quantum/quantum_resonance.html"></div>
         </div>
       </div>
 
+      <!-- STREAM -->
       <div class="grid-2" id="quantum-stream">
         <div class="quantum-panel">
           <h2>Quantum Stream · Live Snapshot</h2>
           <div data-include="webapp/static/panels/quantum/quantum_stream.html"></div>
         </div>
+
         <div class="quantum-panel">
-          <h2>Quantum Realities &amp; Identity</h2>
+          <h2>Quantum Realities & Identity</h2>
           <div data-include="webapp/static/panels/quantum/quantum_identity.html"></div>
           <div data-include="webapp/static/panels/quantum/quantum_realities.html"></div>
         </div>
       </div>
 
+      <!-- LOGS -->
       <div id="quantum-logs" class="quantum-panel">
         <h2>Quantum Event Log</h2>
         <div data-include="webapp/static/panels/quantum/quantum_logs.html"></div>
       </div>
 
+      <!-- CORE / MAPPE / ZDOS13 -->
       <div class="grid-3" style="margin-top:18px;">
+
         <div class="quantum-panel">
-          <h2>Core · Mesh &amp; Resilienza</h2>
+          <h2>Core · Mesh & Resilienza</h2>
           <div data-include="webapp/static/panels/core/nodecore.html"></div>
           <div data-include="webapp/static/panels/reti/meshnode.html"></div>
         </div>
+
         <div class="quantum-panel">
           <h2>Osservazione · Atlante</h2>
           <div data-include="webapp/static/panels/osservazione/earthwatch.html"></div>
           <div data-include="webapp/static/panels/mappe/geomap_engine.html"></div>
         </div>
+
         <div class="quantum-panel">
           <h2>ZDOS13 · Cognitive Layer</h2>
           <div data-include="webapp/static/panels/zdos13/hyperos_continuity_engine.html"></div>
           <div data-include="webapp/static/panels/zdos13/multireality_sync_engine.html"></div>
         </div>
+
       </div>
+
     </section>
   </main>
 
   <footer>
-    <div>GhostTrack-v2 · Quantum HyperOS · Public Read‑Only Observatory</div>
-    <div class="mono">Snapshot: <span id="footer-snapshot">webapp/static/quantum_snapshot.json</span></div>
+    <div>GhostTrack-v2 · Quantum HyperOS · Stellar Space Hub</div>
+    <div class="mono">Snapshot: webapp/static/quantum_snapshot.json</div>
   </footer>
 
   <script>
-    // Piccolo bridge per aggiornare gli status usando i dati già letti da quantum_advanced.js
-    // quantumHistory e fetchSnapshot sono definiti in webapp/static/quantum_advanced.js
     async function refreshStatus() {
       try {
         const res = await fetch('webapp/static/quantum_snapshot.json?_=' + Date.now());
         if (!res.ok) return;
+
         const data = await res.json();
 
-        const modules = data?.qlink?.modules_active ?? '?';
-        const identity = data?.identity ?? {};
-        const realities = data?.realities ?? {};
+        document.getElementById('status-modules').textContent =
+          'modules_active: ' + (data?.qlink?.modules_active ?? '?');
 
-        document.getElementById('status-modules').textContent = 'modules_active: ' + modules;
-        document.getElementById('status-snapshot').textContent = data?.timestamp || 'static snapshot';
-        document.getElementById('status-health').textContent = data?.health || 'n/a';
+        document.getElementById('status-snapshot').textContent =
+          data?.timestamp || 'static snapshot';
 
-        const idBlock = {
-          identity,
-          realities
-        };
+        document.getElementById('status-health').textContent =
+          data?.health || 'n/a';
+
         document.getElementById('quantum-identity-block').textContent =
-          JSON.stringify(idBlock, null, 2);
+          JSON.stringify({
+            identity: data?.identity,
+            realities: data?.realities
+          }, null, 2);
 
       } catch (e) {
         console.error('Status refresh error:', e);
@@ -309,5 +179,6 @@
       setInterval(refreshStatus, 8000);
     });
   </script>
+
 </body>
 </html>
