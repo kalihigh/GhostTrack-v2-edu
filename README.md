@@ -205,3 +205,7 @@ Leggi la tokenomics completa: [AURORA_TOKENOMICS.md](AURORA_TOKENOMICS.md)
 
 ## Aurora‑Chain — Protocollo PoI
 Leggi il protocollo completo: [AURORA_PROTOCOL_POI.md](AURORA_PROTOCOL_POI.md)
+
+
+## Aurora‑Chain — Codice Base (Python)
+Codice PoI: [AURORA_CODEBASE_PY.md](AURORA_CODEBASE_PY.md)
