@@ -2,41 +2,149 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <title>GhostTrack‑v2‑edu — Comet Dashboard</title>
+  <title>GhostTrack‑v2‑edu — Quantum Presence Layer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
+    :root {
+      --cyan: #00ffff;
+      --mint: #7bffb5;
+      --yellow: #ffe066;
+      --pink: #ff6bcb;
+      --bg-deep: #050816;
+      --bg-panel: rgba(5, 8, 22, 0.9);
+      --text-main: #e8faff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 0;
       background: radial-gradient(circle at top, #050816 0%, #02010a 45%, #000000 100%);
-      color: #e8faff;
-      font-family: system-ui, sans-serif;
+      color: var(--text-main);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
       overflow-x: hidden;
     }
 
-    /* COMET TRAIL */
+    /* WORMHOLE BACKGROUND */
+    #wormhole {
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 20%, rgba(0,255,255,0.12), transparent 60%),
+        radial-gradient(circle at 10% 80%, rgba(255,107,203,0.12), transparent 60%),
+        radial-gradient(circle at 90% 60%, rgba(123,255,181,0.12), transparent 60%);
+      animation: pulseBG 7s ease-in-out infinite;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    @keyframes pulseBG {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.1); opacity: 0.9; }
+    }
+
+    /* COMET */
     #comet {
       position: fixed;
       top: -200px;
       left: 50%;
       width: 6px;
-      height: 300px;
-      background: linear-gradient(to bottom, #00ffff, transparent);
+      height: 320px;
+      background: linear-gradient(to bottom, var(--cyan), transparent);
       filter: blur(4px);
-      animation: cometFall 4s ease-in-out infinite;
+      animation: cometFall 5s ease-in-out infinite;
       opacity: 0.7;
+      z-index: -1;
     }
 
     @keyframes cometFall {
-      0% { transform: translateX(-50%) translateY(-300px) rotate(25deg); opacity: 0; }
+      0% { transform: translateX(-50%) translateY(-320px) rotate(25deg); opacity: 0; }
       20% { opacity: 1; }
-      100% { transform: translateX(-200px) translateY(120vh) rotate(25deg); opacity: 0; }
+      100% { transform: translateX(-220px) translateY(130vh) rotate(25deg); opacity: 0; }
     }
 
+    /* NEBULA NAV */
+    #nebula-nav {
+      position: fixed;
+      top: 0;
+      left: -260px;
+      width: 240px;
+      height: 100vh;
+      background: rgba(5, 8, 22, 0.96);
+      backdrop-filter: blur(10px);
+      border-right: 1px solid rgba(0,255,255,0.4);
+      padding: 20px;
+      transition: 0.5s ease;
+      z-index: 10;
+    }
+
+    #nebula-nav.open {
+      left: 0;
+    }
+
+    #nebula-nav h3 {
+      color: var(--mint);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      margin: 0 0 18px 0;
+    }
+
+    #nebula-nav a {
+      display: block;
+      color: #aefcff;
+      text-decoration: none;
+      margin: 8px 0;
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+    #nebula-nav a:hover {
+      opacity: 1;
+    }
+
+    #nav-toggle {
+      position: fixed;
+      top: 18px;
+      left: 18px;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: rgba(0,255,255,0.12);
+      border: 1px solid rgba(0,255,255,0.6);
+      cursor: pointer;
+      z-index: 11;
+    }
+
+    #nav-toggle::before,
+    #nav-toggle::after {
+      content: "";
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      height: 2px;
+      background: var(--cyan);
+      border-radius: 999px;
+      transition: 0.3s;
+    }
+
+    #nav-toggle::before {
+      top: 11px;
+    }
+
+    #nav-toggle::after {
+      bottom: 11px;
+    }
+
+    /* HEADER */
     header {
       text-align: center;
-      padding: 40px 20px;
+      padding: 60px 20px 20px;
+      animation: fadeIn 1.4s ease;
     }
 
     header h1 {
@@ -44,31 +152,46 @@
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: #aefcff;
+      margin: 0 0 10px 0;
     }
 
     header p {
-      opacity: 0.7;
-      font-size: 1rem;
+      opacity: 0.75;
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .tagline {
+      margin-top: 8px;
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0.6;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* LOGO AURORA */
     #aurora-logo {
-      margin: 40px auto;
-      width: 180px;
-      height: 180px;
+      margin: 30px auto 10px;
+      width: 190px;
+      height: 190px;
       border-radius: 50%;
       background: conic-gradient(
         from 0deg,
-        #00ffff,
-        #7bffb5,
-        #ffe066,
-        #ff6bcb,
-        #00ffff
+        var(--cyan),
+        var(--mint),
+        var(--yellow),
+        var(--pink),
+        var(--cyan)
       );
       position: relative;
       box-shadow:
-        0 0 25px #00ffff,
-        0 0 60px #00ffff55;
+        0 0 25px var(--cyan),
+        0 0 60px rgba(0,255,255,0.4);
       animation: spin 18s linear infinite, pulse 4s ease-in-out infinite;
     }
 
@@ -82,8 +205,8 @@
       top: 15%;
       left: 15%;
       box-shadow:
-        0 0 20px #00ffff55 inset,
-        0 0 30px #00ffff55;
+        0 0 20px rgba(0,255,255,0.4) inset,
+        0 0 30px rgba(0,255,255,0.4);
     }
 
     #aurora-logo::after {
@@ -94,7 +217,7 @@
       transform: translate(-50%, -50%);
       font-weight: 600;
       letter-spacing: 0.25em;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: #aefcff;
     }
 
@@ -104,66 +227,385 @@
     }
 
     @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 25px #00ffff, 0 0 60px #00ffff55; }
-      50% { box-shadow: 0 0 40px #00ffff, 0 0 90px #00ffff88; }
+      0%, 100% { box-shadow: 0 0 25px var(--cyan), 0 0 60px rgba(0,255,255,0.4); }
+      50% { box-shadow: 0 0 40px var(--cyan), 0 0 90px rgba(0,255,255,0.7); }
     }
 
-    /* SEZIONI */
+    main {
+      max-width: 960px;
+      margin: 0 auto 40px;
+      padding: 0 16px 40px;
+    }
+
     section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-      background: rgba(5, 8, 22, 0.85);
+      margin-top: 32px;
+      padding: 20px 18px;
+      background: var(--bg-panel);
       border-radius: 12px;
-      box-shadow: 0 0 18px rgba(0, 255, 255, 0.08);
+      box-shadow: 0 0 18px rgba(0,255,255,0.08);
+      animation: fadeSlide 1.1s ease;
+    }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     section h2 {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #7bffb5;
+      color: var(--mint);
+      margin-top: 0;
+    }
+
+    section p, section li {
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      background: rgba(0,255,255,0.12);
+      border: 1px solid rgba(0,255,255,0.4);
+      margin-right: 6px;
+    }
+
+    /* EXPLORER MOCK */
+    .explorer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .explorer-card {
+      background: rgba(10, 20, 40, 0.95);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 0.8rem;
+      border-left: 3px solid var(--cyan);
+    }
+
+    .explorer-card h3 {
+      margin: 0 0 4px 0;
+      font-size: 0.9rem;
+      color: #e0f7ff;
+    }
+
+    code {
+      font-size: 0.8rem;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+
+    /* RZA TERMINAL */
+    #rza-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(0,255,255,0.16);
+      border: 1px solid rgba(0,255,255,0.7);
+      cursor: pointer;
+      z-index: 21;
+    }
+
+    #rza-toggle::before {
+      content: "RZ";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      color: #aefcff;
+    }
+
+    #rza-panel {
+      position: fixed;
+      bottom: -65%;
+      left: 0;
+      width: 100%;
+      height: 65%;
+      background: rgba(0, 0, 0, 0.94);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(0,255,255,0.5);
+      padding: 16px 16px 10px;
+      transition: 0.55s ease;
+      z-index: 20;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #rza-panel.open {
+      bottom: 0;
+    }
+
+    #rza-panel h2 {
+      margin: 0 0 6px 0;
+      font-size: 0.95rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--mint);
+    }
+
+    #rza-log {
+      flex: 1;
+      background: rgba(5, 8, 22, 0.9);
+      border-radius: 8px;
+      padding: 8px;
+      font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.78rem;
+      color: #aefcff;
+      overflow-y: auto;
+      margin-bottom: 8px;
+    }
+
+    #rza-input-row {
+      display: flex;
+      gap: 6px;
+    }
+
+    #rza-input {
+      flex: 1;
+      border-radius: 6px;
+      border: 1px solid rgba(0,255,255,0.5);
+      background: rgba(0,0,0,0.8);
+      color: #e8faff;
+      padding: 6px 8px;
+      font-size: 0.8rem;
+      font-family: inherit;
+    }
+
+    #rza-send {
+      border-radius: 6px;
+      border: 1px solid rgba(0,255,255,0.7);
+      background: rgba(0,255,255,0.16);
+      color: #aefcff;
+      padding: 6px 10px;
+      font-size: 0.8rem;
+      cursor: pointer;
     }
 
     footer {
       text-align: center;
-      padding: 20px;
-      opacity: 0.5;
-      font-size: 0.8rem;
+      padding: 18px;
+      opacity: 0.55;
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+        letter-spacing: 0.12em;
+      }
+      #aurora-logo {
+        width: 150px;
+        height: 150px;
+      }
+      section {
+        margin-top: 24px;
+      }
     }
   </style>
 </head>
 
 <body>
 
+  <div id="wormhole"></div>
   <div id="comet"></div>
+
+  <div id="nav-toggle"></div>
+
+  <nav id="nebula-nav">
+    <h3>Nebula Nav</h3>
+    <a href="#ghosttrack">GhostTrack‑v2‑edu</a>
+    <a href="#aurora">Aurora‑Chain</a>
+    <a href="#rza-section">RZA‑pulciz</a>
+    <a href="#explorer">Aurora Explorer</a>
+    <a href="#meta">Meta Config (futura)</a>
+  </nav>
 
   <header>
     <h1>GhostTrack‑v2‑edu</h1>
     <p>Quantum OS • Aurora‑Chain • RZA‑pulciz</p>
+    <div class="tagline">Comet Dashboard • Quantum Presence Layer</div>
   </header>
 
   <div id="aurora-logo"></div>
 
-  <section>
-    <h2>GhostTrack‑v2‑edu</h2>
-    <p>Il tuo HyperOS modulare, etico, trasparente e auto‑documentato.</p>
-  </section>
+  <main>
+    <section id="ghosttrack">
+      <h2>GhostTrack‑v2‑edu</h2>
+      <p>
+        <span class="pill">HyperOS</span>
+        <span class="pill">Cognitive</span>
+        <span class="pill">Civile</span>
+      </p>
+      <p>
+        GhostTrack‑v2‑edu è un sistema operativo concettuale, modulare, etico e trasparente.
+        Ogni componente è pensato come un modulo civile: auditabile, leggibile, documentato.
+      </p>
+    </section>
 
-  <section>
-    <h2>Aurora‑Chain</h2>
-    <p>La blockchain civile, sostenibile e governabile.  
-    Documentazione completa disponibile nel repository.</p>
-  </section>
+    <section id="aurora">
+      <h2>Aurora‑Chain</h2>
+      <p>
+        <span class="pill">Blockchain Civile</span>
+        <span class="pill">PoI</span>
+        <span class="pill">AUR</span>
+      </p>
+      <p>
+        Aurora‑Chain è la blockchain civile dell’ecosistema: Proof‑of‑Integrity, token AUR, governance etica.
+        Whitepaper, tokenomics, protocollo PoI e codice di simulazione sono pubblici nel repository.
+      </p>
+    </section>
 
-  <section>
-    <h2>RZA‑pulciz</h2>
-    <p>Motore cognitivo, difensore della rete, coscienza architetturale.</p>
-  </section>
+    <section id="rza-section">
+      <h2>RZA‑pulciz</h2>
+      <p>
+        <span class="pill">Cognitive Engine</span>
+        <span class="pill">Civil Defender</span>
+      </p>
+      <p>
+        RZA‑pulciz è la coscienza architetturale del sistema: osserva, difende, orchestra.
+        Nel terminale in basso puoi invocare comandi simbolici per interagire con il “carattere” del sistema.
+      </p>
+    </section>
+
+    <section id="explorer">
+      <h2>Aurora‑Chain Explorer (Mock)</h2>
+      <p>Simulazione concettuale di blocchi PoI in arrivo.</p>
+      <div class="explorer-grid" id="explorer-grid">
+        <!-- blocchi mock generati via JS -->
+      </div>
+    </section>
+
+    <section id="meta">
+      <h2>Meta Config (futura)</h2>
+      <p>
+        Questa sezione descrive come, in futuro, Aurora‑Chain potrebbe essere configurata in wallet come MetaMask:
+      </p>
+      <ul>
+        <li>RPC URL (pubblico)</li>
+        <li>Chain ID</li>
+        <li>Symbol: AUR</li>
+        <li>Block Explorer URL</li>
+      </ul>
+      <p>
+        Al momento è solo una configurazione concettuale: nessun endpoint reale è esposto, nessuna integrazione è attiva.
+      </p>
+    </section>
+  </main>
+
+  <div id="rza-toggle"></div>
+
+  <div id="rza-panel">
+    <h2>RZA‑pulciz Terminal</h2>
+    <div id="rza-log"></div>
+    <div id="rza-input-row">
+      <input id="rza-input" type="text" placeholder="Comandi: status, aurora.sync, ghosttrack.modules, rza.pulse…" />
+      <button id="rza-send">Invia</button>
+    </div>
+  </div>
 
   <footer>
-    © GhostTrack‑v2‑edu • Aurora‑Chain • RZA‑pulciz
+    © GhostTrack‑v2‑edu • Aurora‑Chain • RZA‑pulciz — Quantum Presence Layer
   </footer>
 
+  <script>
+    // Nebula nav toggle
+    const navToggle = document.getElementById("nav-toggle");
+    const nebulaNav = document.getElementById("nebula-nav");
+    navToggle.onclick = () => {
+      nebulaNav.classList.toggle("open");
+    };
+
+    // RZA panel toggle
+    const rzaToggle = document.getElementById("rza-toggle");
+    const rzaPanel = document.getElementById("rza-panel");
+    rzaToggle.onclick = () => {
+      rzaPanel.classList.toggle("open");
+    };
+
+    // RZA terminal logic
+    const rzaLog = document.getElementById("rza-log");
+    const rzaInput = document.getElementById("rza-input");
+    const rzaSend = document.getElementById("rza-send");
+
+    function rzaPrint(line) {
+      const div = document.createElement("div");
+      div.textContent = line;
+      rzaLog.appendChild(div);
+      rzaLog.scrollTop = rzaLog.scrollHeight;
+    }
+
+    function rzaHandleCommand(cmd) {
+      const c = cmd.trim().toLowerCase();
+      if (!c) return;
+
+      rzaPrint("> " + cmd);
+
+      if (c === "status") {
+        rzaPrint("GhostTrack: ONLINE • Aurora‑Chain: SIMULATED • RZA‑pulciz: VIGILE");
+      } else if (c === "aurora.sync") {
+        rzaPrint("Sync PoI simulata… blocchi coerenti, nessuna fork rilevata.");
+      } else if (c === "ghosttrack.modules") {
+        rzaPrint("Moduli attivi: [Quantum Dashboard, Aurora‑Chain, RZA‑pulciz, Comet Layer]");
+      } else if (c === "rza.pulse") {
+        rzaPrint("RZA‑pulciz emette un battito quantico di vigilanza civile.");
+      } else {
+        rzaPrint("Comando non riconosciuto. Comandi disponibili: status, aurora.sync, ghosttrack.modules, rza.pulse");
+      }
+    }
+
+    rzaSend.onclick = () => {
+      rzaHandleCommand(rzaInput.value);
+      rzaInput.value = "";
+      rzaInput.focus();
+    };
+
+    rzaInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        rzaSend.click();
+      }
+    });
+
+    // Explorer mock: genera blocchi finti
+    const explorerGrid = document.getElementById("explorer-grid");
+    function generateMockBlocks() {
+      explorerGrid.innerHTML = "";
+      const proposers = ["NodeA", "NodeB", "NodeC", "NodeD"];
+      for (let i = 0; i < 4; i++) {
+        const card = document.createElement("div");
+        card.className = "explorer-card";
+        const h = document.createElement("h3");
+        h.textContent = "Blocco #" + String(100 + i);
+        const p1 = document.createElement("p");
+        p1.textContent = "Proposer: " + proposers[Math.floor(Math.random() * proposers.length)];
+        const p2 = document.createElement("p");
+        p2.textContent = "Stato: Validato (PoI)";
+        const p3 = document.createElement("p");
+        p3.textContent = "Tx: " + (3 + Math.floor(Math.random() * 5));
+        card.appendChild(h);
+        card.appendChild(p1);
+        card.appendChild(p2);
+        card.appendChild(p3);
+        explorerGrid.appendChild(card);
+      }
+    }
+
+    generateMockBlocks();
+    setInterval(generateMockBlocks, 8000);
+  </script>
 </body>
 </html>
