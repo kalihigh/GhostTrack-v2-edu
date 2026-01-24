@@ -1,7 +1,6 @@
 // civil-defender-wallet.js
 // Civil Defender Wallet — GhostTrack-Chain (EDU)
 // Modulo completo, senza demo/esecuzione automatica.
-// NON per uso finanziario reale.
 
 // ------------------------- Tipi concettuali (JSDoc) -------------------------
 
@@ -38,20 +37,16 @@
  * @property {CivTokenSymbol} token
  * @property {number} amount
  * @property {Date} updatedAt
- *
- * @typedef {Object} CivilDefenderWalletConfig
- * @property {number} minContextScoreToWrite
  */
 
 // ------------------------- Dipendenze -------------------------
 
 const crypto = require('crypto');
 
-// ------------------------- KeyManager (chiavi & GhostID) -------------------------
+// ------------------------- KeyManager -------------------------
 
 class KeyManager {
   constructor() {
-    /** @type {{publicKey: string, privateKey: string}|null} */
     this.keyPair = null;
   }
 
@@ -66,22 +61,15 @@ class KeyManager {
   }
 
   loadKeyPair(privateKeyBase64, publicKeyBase64) {
-    const kp = {
-      publicKey: publicKeyBase64,
-      privateKey: privateKeyBase64,
-    };
-    this.keyPair = kp;
-    return kp;
-  }
-
-  getKeyPairOrThrow() {
-    if (!this.keyPair) {
-      throw new Error('KeyPair non inizializzato');
-    }
+    this.keyPair = { publicKey: publicKeyBase64, privateKey: privateKeyBase64 };
     return this.keyPair;
   }
 
-  /** @returns {GhostID} */
+  getKeyPairOrThrow() {
+    if (!this.keyPair) throw new Error('KeyPair non inizializzato');
+    return this.keyPair;
+  }
+
   getGhostId() {
     const { publicKey } = this.getKeyPairOrThrow();
     const hash = crypto.createHash('sha256').update(publicKey).digest('hex');
@@ -95,8 +83,7 @@ class KeyManager {
       type: 'pkcs8',
       format: 'der',
     });
-    const signature = crypto.sign(null, Buffer.from(data, 'utf8'), privateKeyObj);
-    return signature.toString('base64');
+    return crypto.sign(null, Buffer.from(data, 'utf8'), privateKeyObj).toString('base64');
   }
 
   verify(data, signatureBase64) {
@@ -106,33 +93,30 @@ class KeyManager {
       type: 'spki',
       format: 'der',
     });
-    const signature = Buffer.from(signatureBase64, 'base64');
-    return crypto.verify(null, Buffer.from(data, 'utf8'), publicKeyObj, signature);
+    return crypto.verify(
+      null,
+      Buffer.from(data, 'utf8'),
+      publicKeyObj,
+      Buffer.from(signatureBase64, 'base64')
+    );
   }
 }
 
-// ------------------------- ContextGuardian (contesto di accesso) -------------------------
+// ------------------------- ContextGuardian -------------------------
 
 class ContextGuardian {
   constructor() {
-    /** @type {{id: string, fingerprint: string, createdAt: Date, lastUsedAt: Date}[]} */
     this.storedFingerprints = [];
   }
 
-  /**
-   * @param {AccessContext} ctx
-   */
   buildFingerprint(ctx) {
     const raw = `${ctx.deviceId}|${ctx.userAgent}|${ctx.locale}|${ctx.timeZone}`;
     return crypto.createHash('sha256').update(raw).digest('hex');
   }
 
-  /**
-   * @param {AccessContext} ctx
-   */
   registerContext(ctx) {
     const fingerprint = this.buildFingerprint(ctx);
-    const existing = this.storedFingerprints.find((f) => f.fingerprint === fingerprint);
+    const existing = this.storedFingerprints.find(f => f.fingerprint === fingerprint);
     if (existing) {
       existing.lastUsedAt = new Date();
       return existing;
@@ -147,67 +131,37 @@ class ContextGuardian {
     return stored;
   }
 
-  /**
-   * @param {AccessContext} ctx
-   */
   checkContext(ctx) {
     const fingerprint = this.buildFingerprint(ctx);
-    const existing = this.storedFingerprints.find((f) => f.fingerprint === fingerprint);
-    if (!existing) {
-      return {
-        fingerprint,
-        recognized: false,
-        score: 0,
-      };
-    }
+    const existing = this.storedFingerprints.find(f => f.fingerprint === fingerprint);
+    if (!existing) return { fingerprint, recognized: false, score: 0 };
     existing.lastUsedAt = new Date();
-    return {
-      fingerprint,
-      recognized: true,
-      score: 1,
-    };
-  }
-
-  listFingerprints() {
-    return [...this.storedFingerprints];
+    return { fingerprint, recognized: true, score: 1 };
   }
 }
 
-// ------------------------- TrackLedger (azioni civili & ledger) -------------------------
+// ------------------------- TrackLedger -------------------------
 
 class TrackLedger {
   constructor() {
-    /** @type {CivilAction[]} */
     this.actions = [];
-    /** @type {LedgerEntry[]} */
     this.entries = [];
   }
 
-  /**
-   * @param {GhostID} ghostId
-   * @param {CivilActionType} type
-   * @param {Object} payload
-   * @returns {CivilAction}
-   */
   registerAction(ghostId, type, payload) {
-    const action = /** @type {CivilAction} */ ({
+    const action = {
       id: `ACT-${Date.now()}-${Math.random().toString(16).slice(2)}`,
       ghostId,
       type,
       payload,
       createdAt: new Date(),
-    });
+    };
     this.actions.push(action);
     return action;
   }
 
-  /**
-   * @param {CivilAction} action
-   * @param {number} rewardAmount
-   * @returns {LedgerEntry}
-   */
   rewardAction(action, rewardAmount) {
-    const entry = /** @type {LedgerEntry} */ ({
+    const entry = {
       id: `LED-${Date.now()}-${Math.random().toString(16).slice(2)}`,
       actionId: action.id,
       ghostId: action.ghostId,
@@ -215,61 +169,40 @@ class TrackLedger {
       timestamp: new Date(),
       rewardAmount,
       token: 'CIVSTABLE',
-    });
+    };
     this.entries.push(entry);
     return entry;
   }
 
-  /**
-   * @param {GhostID} ghostId
-   * @returns {CivilAction[]}
-   */
   getActionsByGhostId(ghostId) {
-    return this.actions.filter((a) => a.ghostId === ghostId);
+    return this.actions.filter(a => a.ghostId === ghostId);
   }
 
-  /**
-   * @param {GhostID} ghostId
-   * @returns {LedgerEntry[]}
-   */
   getEntriesByGhostId(ghostId) {
-    return this.entries.filter((e) => e.ghostId === ghostId);
-  }
-
-  getAllEntries() {
-    return [...this.entries];
+    return this.entries.filter(e => e.ghostId === ghostId);
   }
 }
 
-// ------------------------- CivDefBank (bilanci CIVSTABLE) -------------------------
+// ------------------------- CivDefBank -------------------------
 
 class CivDefBank {
   constructor() {
-    /** @type {Map<GhostID, CivBalance>} */
     this.balances = new Map();
   }
 
-  /**
-   * @param {GhostID} ghostId
-   * @returns {CivBalance}
-   */
   getOrInitBalance(ghostId) {
     const existing = this.balances.get(ghostId);
     if (existing) return existing;
-    const created = /** @type {CivBalance} */ ({
+    const created = {
       ghostId,
       token: 'CIVSTABLE',
       amount: 0,
       updatedAt: new Date(),
-    });
+    };
     this.balances.set(ghostId, created);
     return created;
   }
 
-  /**
-   * @param {LedgerEntry} entry
-   * @returns {CivBalance}
-   */
   applyLedgerEntry(entry) {
     const balance = this.getOrInitBalance(entry.ghostId);
     balance.amount += entry.rewardAmount;
@@ -278,86 +211,48 @@ class CivDefBank {
     return balance;
   }
 
-  /**
-   * @param {GhostID} ghostId
-   * @returns {CivBalance}
-   */
   getBalance(ghostId) {
     return this.getOrInitBalance(ghostId);
   }
 }
 
-// ------------------------- CivicStabilityEngine (la “stable” mai inventata) -------------------------
+// ------------------------- CivicStabilityEngine -------------------------
 
-/**
- * Questa “stable” non è ancorata a fiat o asset esterni.
- * È un indice interno di “stabilità civile” del nodo:
- * - più azioni difensive rispetto al totale → maggiore stabilità
- * - più caos (pochi interventi difensivi) → minore stabilità
- *
- * Il valore è puramente concettuale/educativo.
- */
 class CivicStabilityEngine {
   constructor() {
     this.totalActions = 0;
     this.defenseActions = 0;
   }
 
-  /**
-   * @param {CivilAction} action
-   */
   registerActionForStability(action) {
-    this.totalActions += 1;
-    if (action.type === 'DEFENSE') {
-      this.defenseActions += 1;
-    }
+    this.totalActions++;
+    if (action.type === 'DEFENSE') this.defenseActions++;
   }
 
-  /**
-   * @returns {{stabilityIndex: number, multiplier: number}}
-   */
   getStabilityState() {
-    if (this.totalActions === 0) {
-      return { stabilityIndex: 1, multiplier: 1 };
-    }
-    const ratio = this.defenseActions / this.totalActions; // 0..1
-    // Indice 0.5 = neutro, >0.5 più stabile, <0.5 meno stabile
-    const stabilityIndex = ratio;
-    // Moltiplicatore “soft”: 0.8..1.2
-    const multiplier = 0.8 + stabilityIndex * 0.4;
-    return { stabilityIndex, multiplier };
+    if (this.totalActions === 0) return { stabilityIndex: 1, multiplier: 1 };
+    const ratio = this.defenseActions / this.totalActions;
+    const multiplier = 0.8 + ratio * 0.4;
+    return { stabilityIndex: ratio, multiplier };
   }
 
-  /**
-   * Valore “stabile” concettuale del saldo:
-   * amount * multiplier, dove multiplier dipende dalla stabilità civile.
-   *
-   * @param {CivBalance} balance
-   */
   getStableValue(balance) {
     const { multiplier } = this.getStabilityState();
     return balance.amount * multiplier;
   }
 }
 
-// ------------------------- CivilDefenderWallet (orchestratore) -------------------------
+// ------------------------- CivilDefenderWallet -------------------------
 
 class CivilDefenderWallet {
-  /**
-   * @param {Partial<CivilDefenderWalletConfig>=} config
-   */
   constructor(config) {
     this.keyManager = new KeyManager();
     this.contextGuardian = new ContextGuardian();
     this.ledger = new TrackLedger();
     this.bank = new CivDefBank();
     this.stabilityEngine = new CivicStabilityEngine();
-    this.config = {
-      minContextScoreToWrite: (config && config.minContextScoreToWrite) || 1,
-    };
+    this.config = { minContextScoreToWrite: (config && config.minContextScoreToWrite) || 1 };
   }
-
-  // --- Identità & chiavi ---
 
   initNewIdentity() {
     this.keyManager.generateKeyPair();
@@ -367,41 +262,20 @@ class CivilDefenderWallet {
     this.keyManager.loadKeyPair(privateKeyBase64, publicKeyBase64);
   }
 
-  /** @returns {GhostID} */
   getGhostId() {
-    return /** @type {GhostID} */ (this.keyManager.getGhostId());
+    return this.keyManager.getGhostId();
   }
 
-  // --- Contesto ---
-
-  /**
-   * @param {AccessContext} ctx
-   */
   registerTrustedContext(ctx) {
     return this.contextGuardian.registerContext(ctx);
   }
 
-  /**
-   * @param {AccessContext} ctx
-   */
   ensureContextAllowed(ctx) {
     const check = this.contextGuardian.checkContext(ctx);
-    if (!check.recognized || check.score < this.config.minContextScoreToWrite) {
-      throw new Error(
-        'Accesso in scrittura non consentito: contesto non riconosciuto. Wallet in sola lettura.',
-      );
-    }
+    if (!check.recognized || check.score < this.config.minContextScoreToWrite)
+      throw new Error('Accesso negato: contesto non riconosciuto.');
   }
 
-  // --- Azioni civili & premi CIVSTABLE ---
-
-  /**
-   * @param {AccessContext} ctx
-   * @param {CivilActionType} type
-   * @param {Object} payload
-   * @param {number} rewardAmount
-   * @returns {{action: CivilAction, entry: LedgerEntry, balance: CivBalance}}
-   */
   registerCivilAction(ctx, type, payload, rewardAmount) {
     this.ensureContextAllowed(ctx);
     const ghostId = this.getGhostId();
@@ -412,68 +286,29 @@ class CivilDefenderWallet {
     return { action, entry, balance };
   }
 
-  /** @returns {CivBalance} */
   getBalance() {
-    const ghostId = this.getGhostId();
-    return this.bank.getBalance(ghostId);
+    return this.bank.getBalance(this.getGhostId());
   }
 
-  /**
-   * @returns {{actions: CivilAction[], entries: LedgerEntry[]}}
-   */
-  getHistory() {
-    const ghostId = this.getGhostId();
-    return {
-      actions: this.ledger.getActionsByGhostId(ghostId),
-      entries: this.ledger.getEntriesByGhostId(ghostId),
-    };
-  }
-
-  // --- Firma simbolica ---
-
-  /**
-   * @param {Object} payload
-   */
-  signPayload(payload) {
-    const data = JSON.stringify(payload);
-    return this.keyManager.sign(data);
-  }
-
-  /**
-   * @param {Object} payload
-   * @param {string} signatureBase64
-   */
-  verifyPayload(payload, signatureBase64) {
-    const data = JSON.stringify(payload);
-    return this.keyManager.verify(data, signatureBase64);
-  }
-
-  // --- “Stable” civile ---
-
-  /**
-   * @returns {{stabilityIndex: number, multiplier: number}}
-   */
-  getCivicStabilityState() {
-    return this.stabilityEngine.getStabilityState();
-  }
-
-  /**
-   * @returns {{raw: CivBalance, stableValue: number}}
-   */
   getStableBalanceView() {
     const raw = this.getBalance();
-    const stableValue = this.stabilityEngine.getStableValue(raw);
-    return { raw, stableValue };
+    return { raw, stableValue: this.stabilityEngine.getStableValue(raw) };
+  }
+
+  signPayload(payload) {
+    return this.keyManager.sign(JSON.stringify(payload));
+  }
+
+  verifyPayload(payload, signature) {
+    return this.keyManager.verify(JSON.stringify(payload), signature);
   }
 }
 
-// ------------------------- Esportazioni -------------------------
-
 module.exports = {
+  CivilDefenderWallet,
   KeyManager,
   ContextGuardian,
   TrackLedger,
   CivDefBank,
   CivicStabilityEngine,
-  CivilDefenderWallet,
 };
