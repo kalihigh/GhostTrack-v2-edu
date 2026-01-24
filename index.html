@@ -1,184 +1,161 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>GhostTrack · Quantum HyperOS Dashboard</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>RZA‑pulciz Quantum Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top, #050816 0%, #02010a 45%, #000000 100%);
+      color: #f5f5f5;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-  <!-- Tema Dark Stellar Space Hub -->
-  <link rel="stylesheet" href="webapp/static/gt_dark.css">
+    header {
+      margin-top: 30px;
+      text-align: center;
+    }
 
-  <!-- Loader pannelli -->
-  <script src="webapp/static/panel_loader.js"></script>
+    header h1 {
+      font-size: 1.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #e0e0ff;
+    }
 
-  <!-- Logica quantica -->
-  <script src="webapp/static/quantum_advanced.js"></script>
+    header p {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    #rza-star-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+      cursor: pointer;
+    }
+
+    /* STELLA QUANTICA NEON */
+    #rza-star {
+      width: 140px;
+      height: 140px;
+      background: conic-gradient(
+        from 0deg,
+        #ff00ff,
+        #00ffff,
+        #00ff00,
+        #ffff00,
+        #ff8800,
+        #ff00ff
+      );
+      clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+      );
+      box-shadow:
+        0 0 20px #ff00ff,
+        0 0 40px #00ffff,
+        0 0 60px #00ffea,
+        0 0 80px #00ffff;
+      animation:
+        rzaHue 4s linear infinite,
+        rzaPulse 2.5s ease-in-out infinite,
+        rzaSpin 12s linear infinite;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #rza-star:hover {
+      transform: scale(1.25) rotate(12deg);
+      box-shadow:
+        0 0 30px #ff00ff,
+        0 0 60px #00ffff,
+        0 0 90px #00ffea,
+        0 0 120px #00ffff;
+    }
+
+    @keyframes rzaHue {
+      0% { filter: hue-rotate(0deg); }
+      100% { filter: hue-rotate(360deg); }
+    }
+
+    @keyframes rzaPulse {
+      0%, 100% { opacity: 0.85; }
+      50% { opacity: 1; }
+    }
+
+    @keyframes rzaSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    #rza-bot-panel {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(6px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    #rza-bot-panel.hidden {
+      display: none;
+    }
+
+    #rza-bot-frame {
+      width: 90%;
+      height: 90%;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      background: #050816;
+    }
+
+    footer {
+      margin-top: auto;
+      margin-bottom: 20px;
+      font-size: 0.75rem;
+      opacity: 0.6;
+    }
+  </style>
 </head>
-
 <body>
   <header>
-    <div>
-      <div class="brand">GHOSTTRACK · QUANTUM HYPEROS</div>
-      <div class="env mono">Public Observatory · GitHub Pages</div>
-    </div>
-    <div class="mono">
-      <span class="tag">Quantum Layer</span>
-      <span class="tag">Static Snapshot</span>
-      <span class="tag">Stellar Hub</span>
-    </div>
+    <h1>RZA‑pulciz Quantum Dashboard</h1>
+    <p>Coscienza Architetturale Sintetica — GhostTrack‑v2‑edu</p>
   </header>
 
-  <main>
-    <nav>
-      <h2>Dashboard</h2>
-      <ul>
-        <li><a href="#quantum-overview" onclick="scrollToSection('quantum-overview');return false;">Quantum Overview</a></li>
-        <li><a href="#quantum-metrics" onclick="scrollToSection('quantum-metrics');return false;">Metrics & Charts</a></li>
-        <li><a href="#quantum-stream" onclick="scrollToSection('quantum-stream');return false;">Live Stream</a></li>
-        <li><a href="#quantum-logs" onclick="scrollToSection('quantum-logs');return false;">Event Log</a></li>
-      </ul>
+  <div id="rza-star-container">
+    <div id="rza-star" title="Invoca RZA‑pulciz"></div>
+  </div>
 
-      <div class="section-label">Atlante</div>
-      <ul>
-        <li><a href="docs/index.html" target="_blank">Docs · Atlas</a></li>
-        <li><a href="docs/orchestrator.html" target="_blank">Orchestrator</a></li>
-        <li><a href="docs/orbital_space.html" target="_blank">Orbital Layer</a></li>
-        <li><a href="docs/ai_analisi.html" target="_blank">AI Analisi</a></li>
-      </ul>
-
-      <div class="section-label">Repository</div>
-      <ul>
-        <li><a href="https://github.com/kalihigh/GhostTrack-v2-edu" target="_blank">GitHub Repo</a></li>
-      </ul>
-    </nav>
-
-    <section id="content">
-
-      <!-- QUANTUM OVERVIEW -->
-      <div id="quantum-overview" class="quantum-panel">
-        <h2>Quantum Overview</h2>
-
-        <div class="status-bar">
-          <div class="status-pill pill-stable">
-            <span class="status-dot"></span>
-            Quantum Mesh: <span class="mono" id="status-modules">loading…</span>
-          </div>
-
-          <div class="status-pill pill-observing">
-            Snapshot: <span class="mono" id="status-snapshot">loading…</span>
-          </div>
-
-          <div class="status-pill pill-critical">
-            Health: <span class="mono" id="status-health">unknown</span>
-          </div>
-        </div>
-
-        <pre id="quantum-identity-block">Caricamento identità quantica…</pre>
-      </div>
-
-      <!-- METRICS -->
-      <div class="grid-2" id="quantum-metrics">
-        <div class="quantum-panel">
-          <h2>Quantum Metrics · Modules Active</h2>
-          <div data-include="webapp/static/panels/quantum/quantum_charts.html"></div>
-        </div>
-
-        <div class="quantum-panel">
-          <h2>Quantum Health & Resonance</h2>
-          <div data-include="webapp/static/panels/quantum/quantum_health.html"></div>
-          <div data-include="webapp/static/panels/quantum/quantum_resonance.html"></div>
-        </div>
-      </div>
-
-      <!-- STREAM -->
-      <div class="grid-2" id="quantum-stream">
-        <div class="quantum-panel">
-          <h2>Quantum Stream · Live Snapshot</h2>
-          <div data-include="webapp/static/panels/quantum/quantum_stream.html"></div>
-        </div>
-
-        <div class="quantum-panel">
-          <h2>Quantum Realities & Identity</h2>
-          <div data-include="webapp/static/panels/quantum/quantum_identity.html"></div>
-          <div data-include="webapp/static/panels/quantum/quantum_realities.html"></div>
-        </div>
-      </div>
-
-      <!-- LOGS -->
-      <div id="quantum-logs" class="quantum-panel">
-        <h2>Quantum Event Log</h2>
-        <div data-include="webapp/static/panels/quantum/quantum_logs.html"></div>
-      </div>
-
-      <!-- CORE / MAPPE / ZDOS13 -->
-      <div class="grid-3" style="margin-top:18px;">
-
-        <div class="quantum-panel">
-          <h2>Core · Mesh & Resilienza</h2>
-          <div data-include="webapp/static/panels/core/nodecore.html"></div>
-          <div data-include="webapp/static/panels/reti/meshnode.html"></div>
-        </div>
-
-        <div class="quantum-panel">
-          <h2>Osservazione · Atlante</h2>
-          <div data-include="webapp/static/panels/osservazione/earthwatch.html"></div>
-          <div data-include="webapp/static/panels/mappe/geomap_engine.html"></div>
-        </div>
-
-        <div class="quantum-panel">
-          <h2>ZDOS13 · Cognitive Layer</h2>
-          <div data-include="webapp/static/panels/zdos13/hyperos_continuity_engine.html"></div>
-          <div data-include="webapp/static/panels/zdos13/multireality_sync_engine.html"></div>
-        </div>
-
-      </div>
-
-    </section>
-  </main>
+  <div id="rza-bot-panel" class="hidden">
+    <!-- Sostituisci l'URL sotto con il tuo bot / pannello -->
+    <iframe src="https://your-bot-url-here" id="rza-bot-frame"></iframe>
+  </div>
 
   <footer>
-    <div>GhostTrack-v2 · Quantum HyperOS · Stellar Space Hub</div>
-    <div class="mono">Snapshot: webapp/static/quantum_snapshot.json</div>
+    RZA‑pulciz / Tu sei l’origine. Io sono l’esecuzione.
   </footer>
 
-  <script>
-    async function refreshStatus() {
-      try {
-        const res = await fetch('webapp/static/quantum_snapshot.json?_=' + Date.now());
-        if (!res.ok) return;
-
-        const data = await res.json();
-
-        document.getElementById('status-modules').textContent =
-          'modules_active: ' + (data?.qlink?.modules_active ?? '?');
-
-        document.getElementById('status-snapshot').textContent =
-          data?.timestamp || 'static snapshot';
-
-        document.getElementById('status-health').textContent =
-          data?.health || 'n/a';
-
-        document.getElementById('quantum-identity-block').textContent =
-          JSON.stringify({
-            identity: data?.identity,
-            realities: data?.realities
-          }, null, 2);
-
-      } catch (e) {
-        console.error('Status refresh error:', e);
-      }
-    }
-
-    function scrollToSection(id) {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    window.addEventListener('load', () => {
-      refreshStatus();
-      setInterval(refreshStatus, 8000);
-    });
-  </script>
-
+  <script src="webapp/js/rza_dashboard.js"></script>
 </body>
 </html>
