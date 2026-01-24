@@ -209,3 +209,7 @@ Leggi il protocollo completo: [AURORA_PROTOCOL_POI.md](AURORA_PROTOCOL_POI.md)
 
 ## Aurora‑Chain — Codice Base (Python)
 Codice PoI: [AURORA_CODEBASE_PY.md](AURORA_CODEBASE_PY.md)
+
+
+## Aurora‑Chain — Documento Unificato
+Leggi il documento completo: [AURORA_MASTER_DOCUMENT.md](AURORA_MASTER_DOCUMENT.md)
