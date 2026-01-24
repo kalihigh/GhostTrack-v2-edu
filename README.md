@@ -229,3 +229,7 @@ Esegui la simulazione locale con:
 ```bash
 python aurora_chain_sim.py
 ```
+
+
+## GhostTrack‑v2‑edu — Comet Dashboard
+La pagina principale è stata aggiornata a una versione animata e moderna.
