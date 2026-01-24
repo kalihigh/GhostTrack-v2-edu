@@ -221,3 +221,11 @@ Pagina GitHub Pages: [aurora-chain.html](aurora-chain.html)
 
 ## Aurora‑Chain — Pagina ufficiale
 Pagina: [aurora-chain.html](aurora-chain.html)
+
+
+## Aurora‑Chain — Simulazione PoI (Python)
+Esegui la simulazione locale con:
+
+```bash
+python aurora_chain_sim.py
+```
