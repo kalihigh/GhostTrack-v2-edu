@@ -197,3 +197,7 @@ Insieme costruiamo la catena.**
 
 ## Aurora‑Chain
 Whitepaper: [AURORA_WHITEPAPER.md](AURORA_WHITEPAPER.md)
+
+
+## Aurora‑Chain Tokenomics
+Leggi la tokenomics completa: [AURORA_TOKENOMICS.md](AURORA_TOKENOMICS.md)
