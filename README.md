@@ -213,3 +213,7 @@ Codice PoI: [AURORA_CODEBASE_PY.md](AURORA_CODEBASE_PY.md)
 
 ## Aurora‑Chain — Documento Unificato
 Leggi il documento completo: [AURORA_MASTER_DOCUMENT.md](AURORA_MASTER_DOCUMENT.md)
+
+
+## Aurora‑Chain — Pagina ufficiale
+Pagina GitHub Pages: [aurora-chain.html](aurora-chain.html)

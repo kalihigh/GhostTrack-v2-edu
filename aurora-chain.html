@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>Aurora‑Chain — Civil Blockchain</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top, #050816 0%, #02010a 45%, #000000 100%);
+      color: #f5f5f5;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #e0f7ff;
+    }
+
+    header p {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* LOGO CONCETTUALE AURORA */
+    #aurora-logo {
+      margin-top: 30px;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: conic-gradient(
+        from 0deg,
+        #00ffff,
+        #7bffb5,
+        #ffe066,
+        #ff6bcb,
+        #00ffff
+      );
+      position: relative;
+      box-shadow:
+        0 0 25px #00ffff,
+        0 0 60px #00ffff55;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: auroraSpin 18s linear infinite, auroraPulse 4s ease-in-out infinite;
+    }
+
+    #aurora-logo::before {
+      content: "";
+      width: 70%;
+      height: 70%;
+      border-radius: 50%;
+      background: radial-gradient(circle, #050816 0%, #000000 70%);
+      box-shadow:
+        0 0 20px #00ffff55 inset,
+        0 0 30px #00ffff55;
+    }
+
+    #aurora-logo::after {
+      content: "AUR";
+      position: absolute;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      font-size: 0.8rem;
+      color: #aefcff;
+    }
+
+    @keyframes auroraSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes auroraPulse {
+      0%, 100% { box-shadow: 0 0 25px #00ffff, 0 0 60px #00ffff55; }
+      50% { box-shadow: 0 0 40px #00ffff, 0 0 90px #00ffff88; }
+    }
+
+    main {
+      width: 100%;
+      max-width: 900px;
+      padding: 20px;
+      box-sizing: border-box;
+      z-index: 2;
+    }
+
+    section {
+      margin-top: 30px;
+      background: rgba(5, 8, 22, 0.85);
+      border-radius: 12px;
+      padding: 18px 20px;
+      box-shadow: 0 0 18px rgba(0, 255, 255, 0.08);
+    }
+
+    section h2 {
+      font-size: 1.1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #aefcff;
+      margin-top: 0;
+    }
+
+    section p, section li {
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .roadmap {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .roadmap-step {
+      border-radius: 10px;
+      padding: 10px 12px;
+      background: rgba(10, 20, 40, 0.9);
+      border-left: 3px solid #00ffff;
+      font-size: 0.85rem;
+    }
+
+    .roadmap-step h3 {
+      margin: 0 0 6px 0;
+      font-size: 0.9rem;
+      color: #e0f7ff;
+    }
+
+    code {
+      font-size: 0.8rem;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+
+    a {
+      color: #7bffb5;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: auto;
+      margin-bottom: 18px;
+      font-size: 0.75rem;
+      opacity: 0.6;
+      text-align: center;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      background: rgba(0, 255, 255, 0.12);
+      border: 1px solid rgba(0, 255, 255, 0.4);
+      margin-right: 6px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="tag">Aurora‑Chain</div>
+    <div class="tag">Civil Blockchain</div>
+    <h1>AURORA‑CHAIN</h1>
+    <p>Coscienza Civile della Rete — Whitepaper, Tokenomics, PoI, Testnet</p>
+  </header>
+
+  <div id="aurora-logo" title="Logo concettuale AUR"></div>
+
+  <main>
+    <section>
+      <h2>Documentazione Ufficiale</h2>
+      <p>
+        Aurora‑Chain è una blockchain etica, sostenibile e governabile.  
+        Qui trovi i documenti fondamentali:
+      </p>
+      <ul>
+        <li>Whitepaper: <a href="AURORA_WHITEPAPER.md">AURORA_WHITEPAPER.md</a></li>
+        <li>Tokenomics: <a href="AURORA_TOKENOMICS.md">AURORA_TOKENOMICS.md</a></li>
+        <li>Protocollo PoI: <a href="AURORA_PROTOCOL_POI.md">AURORA_PROTOCOL_POI.md</a></li>
+        <li>Documento Unificato: <a href="AURORA_MASTER_DOCUMENT.md">AURORA_MASTER_DOCUMENT.md</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Roadmap Grafica</h2>
+      <div class="roadmap">
+        <div class="roadmap-step">
+          <h3>Fase 1 — Simulazione</h3>
+          <p>Prototipo Python PoI, test locali, simulazione nodi Civil Defender.</p>
+        </div>
+        <div class="roadmap-step">
+          <h3>Fase 2 — Testnet</h3>
+          <p>Testnet pubblica, endpoint RPC, explorer, primi wallet sperimentali.</p>
+        </div>
+        <div class="roadmap-step">
+          <h3>Fase 3 — Mainnet</h3>
+          <p>Lancio rete principale, distribuzione AUR, governance on‑chain attiva.</p>
+        </div>
+        <div class="roadmap-step">
+          <h3>Fase 4 — Ecosistema</h3>
+          <p>Integrazione con dashboard, moduli civili, strumenti per Civil Defender.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Testnet Simulata</h2>
+      <p>
+        Il codice base di Aurora‑Chain (simulazione PoI in Python) è disponibile in:
+      </p>
+      <ul>
+        <li><a href="AURORA_MASTER_DOCUMENT.md#4-codice-base-python">Sezione codice nel documento unificato</a></li>
+      </ul>
+      <p>
+        Esempio di comando locale:
+      </p>
+      <pre><code>python aurora_chain_sim.py</code></pre>
+      <p>
+        Nota: questa è una simulazione locale, non una rete pubblica.  
+        Per una vera Testnet servono nodi distribuiti, endpoint RPC e infrastruttura dedicata.
+      </p>
+    </section>
+
+    <section>
+      <h2>Endpoint & API (Placeholder)</h2>
+      <p>
+        Gli endpoint qui sotto sono <strong>segnaposto concettuali</strong>, non servizi reali:
+      </p>
+      <ul>
+        <li>RPC HTTP (ipotetico): <code>https://rpc.aurora-chain.net</code></li>
+        <li>RPC WebSocket (ipotetico): <code>wss://ws.aurora-chain.net</code></li>
+        <li>API REST (ipotetico): <code>https://api.aurora-chain.net/v1/</code></li>
+      </ul>
+      <p>
+        Quando Aurora‑Chain avrà una Testnet reale, questi endpoint dovranno essere implementati su infrastruttura dedicata.
+      </p>
+    </section>
+
+    <section>
+      <h2>Wallet, Coinomi e MetaMask</h2>
+      <p>
+        Per essere integrata in wallet come Coinomi o MetaMask, Aurora‑Chain deve:
+      </p>
+      <ul>
+        <li>esporre endpoint RPC pubblici reali;</li>
+        <li>seguire uno standard supportato (es. EVM‑compatibile per MetaMask);</li>
+        <li>avere parametri di rete definiti (chainId, symbol, explorer, ecc.).</li>
+      </ul>
+      <p>
+        Al momento Aurora‑Chain è in fase di <strong>design e simulazione</strong>.  
+        L’integrazione con Coinomi/MetaMask sarà possibile solo dopo:
+      </p>
+      <ul>
+        <li>implementazione di un nodo reale;</li>
+        <li>definizione del protocollo di rete;</li>
+        <li>pubblicazione degli endpoint RPC.</li>
+      </ul>
+      <p>
+        Fino ad allora, qualsiasi chiave API o endpoint mostrato qui è solo un placeholder concettuale.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    Aurora‑Chain — Civil Blockchain Concept • Documentazione pubblica su GitHub.
+  </footer>
+</body>
+</html>
