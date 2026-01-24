@@ -201,3 +201,7 @@ Whitepaper: [AURORA_WHITEPAPER.md](AURORA_WHITEPAPER.md)
 
 ## Aurora‑Chain Tokenomics
 Leggi la tokenomics completa: [AURORA_TOKENOMICS.md](AURORA_TOKENOMICS.md)
+
+
+## Aurora‑Chain — Protocollo PoI
+Leggi il protocollo completo: [AURORA_PROTOCOL_POI.md](AURORA_PROTOCOL_POI.md)
